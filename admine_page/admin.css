@@ -1,0 +1,302 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&family=Roboto&display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+.container{
+    width: 100%;
+    position: relative;
+}
+.navigation.active{
+    width: 60px;
+
+}
+.navigation{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(51,51,51);
+    transition:0.5s;
+    overflow: hidden;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li:hover{
+    background-color: rgb(0,143,219);
+
+
+}
+.navigation ul li:nth-child(1){
+    margin: 20px;
+    color: black;
+    /* background-color: rgb(0,143,219); */
+}
+.navigation ul li:nth-child(1):hover{
+    background-color:transparent;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+
+}
+.fa-apple:before {
+    content: "\f179";
+    color: rgb(51,51,51);
+}
+.navigation ul li a .icon .fa{
+    
+    /* color: black; */
+    color: white;
+    font-size: 16px;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    height: 60px;
+    padding: 0 10px;
+    line-height: 60px;
+    white-space: nowrap;
+
+    font-size: 17px;
+}
+
+.main{
+    position: absolute;
+    width: calc(100% - 250px);
+    /* width: 100%; */
+    left: 250px;
+    min-height: 100vh;
+    background-color: lightblue;
+    transition: 0.5s;
+
+}
+.main.active{
+    /* width: calc(100% - 300px); */
+    width:calc(100% - 60px);
+    /* width: 100%; */
+    left: 60px;
+
+}
+.main .topbar{
+width: 100%;
+height: 60px;
+display: flex;
+background-color: rgb(51,51,51);
+justify-content: space-between;
+align-items: center;
+}
+
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: red;
+
+}
+.toggle::before{
+    content: '\f0c9 ';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+}
+.search{
+    position: relative; 
+    width: 400px;
+    margin: 0 10px;
+}
+.search lable{
+    position: relative;
+    width: 100%;
+}
+.search input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    outline: none;
+
+}
+
+.cardbox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+   
+}
+.cardbox .card{
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor:pointer;
+    border-radius: 10px;
+}
+.cardbox .card .numbers{
+position: relative;
+font-size: 2em;
+font-weight: 500;
+}
+.cardbox .card .cardName{
+    color: dodgerblue;
+}
+.cardbox .card .iconBox{
+    color:rgb(122, 122, 240);
+    font-size: 35px;
+}
+.cardbox .card .iconBox:hover{
+    font-size: 45px;
+}
+.details{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+gap: 20px;
+
+}
+.details .recentOrders{
+    position: relative;
+    min-height: 530px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+
+.cartHedder{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cartHedder h2{
+font-weight: 600;
+}
+
+.btn{
+    position: relative;
+    padding:  5px 10px;
+    background-color: rgb(125, 125, 221);
+    color: white;
+    text-decoration: none;
+
+}
+.details table{
+    width:100%;
+    border-collapse:collapse ;
+    margin-top: 10px;
+}
+.details table thead{
+    font-weight: 600;
+}
+.details .recentOrders table tr {
+    border-bottom: 1px solid rgb(0, 0, 0,0.2);
+}
+.details .recentOrders table tbody tr:hover{
+    background-color: rgb(94, 145, 197);
+    color: white;
+}
+.details .recentOrders table tbody tr:last-child{
+    border-bottom: none;
+}
+.details .recentOrders table tr td{
+    padding: 5px 5px;
+}
+.details .recentOrders table tbody tr td:last-child,
+.details .recentOrders table thead tr td:last-child{
+text-align:left;
+}
+.status{
+    /* background-color: red; */
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+.delivered{
+    background-color: rgb(6, 185, 6);
+}
+.pending{
+    background-color: rgb(230, 248, 66);
+    color: black;
+}
+.return{
+    background-color: red;
+}
+.progress{
+    background-color: blue;
+}
+
+/* recentCosumers
+ */
+ .details .recentCustomers{
+    border-radius: 10px;
+    position: relative;
+    min-height: 530px;
+    background-color: #fff;
+    padding: 20px;
+}
+.details .recentCustomers .imgBox{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    overflow: hidden;
+}
+.details .recentCustomers .imgBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details .recentCustomers table tr:hover{
+    background-color: rgb(94, 145, 197);
+    color: white;
+}
+.details .recentCustomers table tr td{
+    padding: 3px ;
+    text-align: left;
+
+}

@@ -1,0 +1,322 @@
+
+
+
+#mainDiv{
+    width:90%; 
+    display: flex;
+    padding:4%;
+    
+}
+
+#productName{
+    width:20%;
+    height:25vw;   
+}
+
+#productImages{
+    width:70%;
+    margin: auto;
+}
+
+#brands{
+    padding-top: 4%;;
+    width:80%;
+    margin: auto;
+    margin-bottom: 4%;
+}
+
+#shoes{
+    width:80%;
+   
+    margin: auto;
+    margin-bottom: 4%;
+}
+
+#clothing{
+    width:80%;
+    
+    margin: auto;
+    margin-bottom: 4%;
+}
+
+#accessories{
+    width:80%;
+    
+    margin: auto;
+    margin-bottom: 4%;
+}
+
+#brands > p{
+    margin:0px;
+    cursor: pointer;
+    /* font-family: Arial,Helvetica,sans-serif;
+    font-weight: 400; */
+}
+
+#shoes > p {
+    margin:0px;
+    cursor: pointer;
+}
+
+#clothing > p {
+    margin:0px;
+    cursor: pointer;
+}
+
+#accessories > p {
+    margin: 0px;
+    cursor: pointer;
+}
+
+#brands > b{
+   font-size: 1.2vw;
+   cursor: pointer;
+  
+}
+
+#shoes > b {
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+
+#clothing > b {
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+
+#accessories > b {
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+
+#differentProductImages{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+}
+
+#differentProductImages img{
+   width:20vw;
+   height:20vw;
+}
+
+#marqueue{
+    height:3.5vw;
+    color:white;
+    background-color: black;
+}
+
+#mainDiv2{
+    width:90%; 
+    display: flex;
+    padding:4%;
+    
+}
+
+#freeSpace{
+    width:20%;
+    height:25vw;   
+}
+
+#largeImages{
+    width:70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+#largeImages  img{
+    width:30vw;
+    margin-top:-3vw;
+}
+
+#mainDiv3{
+    width:90%; 
+    display: flex;
+    padding:4%;
+    margin-top: -5vw;;
+    
+}
+
+#freeSpace2{
+    width:20%; 
+}
+
+#largeImages2{
+    width:70%;
+    margin: auto;
+    display: flex;
+    justify-content:space-around;
+}
+
+hr{
+    width:60%;
+    margin-left: 27vw;
+}
+
+#hr2{
+    width:60%;
+    margin-left: 27vw;;
+    margin-top: -3.5vw;
+}
+
+
+#mainDiv4{
+    width:90%; 
+    display: flex;
+    padding:4%;
+    margin-top: -5vw;;
+    
+}
+
+#freeSpace3{
+    width:20%; 
+}
+
+#largeImages3{
+    width:70%;
+    margin: auto;
+    display: flex;
+    justify-content:space-around;
+}
+
+#largeImages3  img{
+    width:30vw;
+    
+    margin-top: 1.5vw;
+}
+
+
+#mainDiv5{
+    width:90%; 
+    display: flex;
+    padding:4%;
+    margin-top: -5vw;;
+    
+}
+
+#freeSpace4{
+    width:20%; 
+}
+
+#largeImages4{
+    width:70%;
+    margin: auto;
+    display: flex;
+    justify-content:space-around;
+}
+
+#largeImages4  img{
+    width:20vw;
+}
+
+#mainDiv6{
+    width:90%; 
+    display: flex;
+    padding:4%;
+    margin-top: -5vw;;   
+}
+
+#freeSpace5{
+    width:20%; 
+}
+
+#largeImages5{
+    width:70%;
+    margin: auto;
+    justify-content:space-around;
+}
+
+
+
+#mainDiv7{
+    width:90%; 
+    display: flex;
+    padding:4%;
+    margin-top: -5vw;;   
+}
+
+#freeSpace6{
+    width:20%; 
+}
+
+#largeImages6{
+    width:70%;
+    margin: auto;
+    justify-content:space-around;
+}
+
+
+nav{
+    display: flex;
+    /* border: 2px solid red; */
+    padding:10px
+}
+nav>div:nth-child(1){
+    /* border: 2px solid rgb(0, 0, 0); */
+    display: flex;
+    justify-content:space-evenly;
+    width: 30%;
+    align-items: center;
+}
+nav>div:nth-child(1)>h1{
+    color: rgb(126, 2, 175);
+}
+nav>div:nth-child(2){
+    /* border: 2px solid rgb(0, 0, 0); */
+    display: flex;
+    width: 100%;
+    justify-content:center;
+}
+nav>div:nth-child(2)>div{
+    /* border: 2px solid rgb(255, 0, 0); */
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+    align-items: center;
+}
+nav>div:nth-child(2)>div>input{
+    /* border: 2px solid rgb(0, 0, 0); */
+    padding:8px 10px 8px;
+    border-radius: 25px;
+}
+nav>div:nth-child(2)>div>div{
+    border: 2px solid rgb(0, 0, 0);
+    padding:7px 20px 7px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+}
+nav>div:nth-child(2)>div>div>span>img{
+    width: 20px ;
+    height: 20px;
+    margin: 1px 5px 1px;
+}
+nav div img{
+    width: 60px ;
+    height: 60px;
+}
+
+#links{
+    display: flex;
+    justify-content:center;
+    padding: 1%;
+    /* border: 2px solid red; */
+}
+#links>a{
+    margin: 0px 30px 0px;
+    text-decoration: none;
+    color: black;
+}
+#links>a:hover{
+    font-weight: 100;
+    color: rgb(0, 156, 254);
+}
+
+
+
+
+
+

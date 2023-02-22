@@ -1,6 +1,4 @@
 
-
-
 #mainDiv{
     width:90%; 
     display: flex;
@@ -315,7 +313,9 @@ nav div img{
     color: rgb(0, 156, 254);
 }
 
-
+a:link {
+    text-decoration: none;
+  }
 
 
 

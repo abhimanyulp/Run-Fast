@@ -1,0 +1,128 @@
+
+nav{
+    display: flex;
+    /* border: 2px solid red; */
+    padding:10px
+}
+nav>div:nth-child(1){
+    /* border: 2px solid rgb(0, 0, 0); */
+    display: flex;
+    justify-content:space-evenly;
+    width: 30%;
+    align-items: center;
+}
+nav>div:nth-child(1)>h1{
+    color: rgb(126, 2, 175);
+}
+nav>div:nth-child(2){
+    /* border: 2px solid rgb(0, 0, 0); */
+    display: flex;
+    width: 100%;
+    justify-content:center;
+}
+nav>div:nth-child(2)>div{
+    /* border: 2px solid rgb(255, 0, 0); */
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+    align-items: center;
+}
+nav>div:nth-child(2)>div>input{
+    /* border: 2px solid rgb(0, 0, 0); */
+    padding:8px 10px 8px;
+    border-radius: 25px;
+}
+nav>div:nth-child(2)>div>div{
+    border: 2px solid rgb(0, 0, 0);
+    padding:7px 20px 7px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+}
+nav>div:nth-child(2)>div>div>span>img{
+    width: 20px ;
+    height: 20px;
+    margin: 1px 5px 1px;
+}
+nav div img{
+    width: 60px ;
+    height: 60px;
+}
+
+#links{
+    display: flex;
+    justify-content:center;
+    padding: 1%;
+    /* border: 2px solid red; */
+}
+#links>a{
+    margin: 0px 30px 0px;
+    text-decoration: none;
+    color: black;
+}
+#links>a:hover{
+    font-weight: 100;
+    color: rgb(0, 156, 254);
+}
+
+#marqueue{
+    height:3.5vw;
+    color:white;
+    background-color: black;
+}
+
+
+#mainDiv{
+    width:90%; 
+    display: flex;
+    padding:4%;
+  
+   height:500px;
+   margin: auto;
+}
+
+#freeSpace{
+    width:20%; 
+   
+}
+
+#imagesToFetch{
+    width:70%;
+    margin: auto;
+    justify-content:space-around;
+    border:5px solid green;
+    height:500px;
+}
+
+
+input{
+    width:95%;
+    height:2vw;
+    border-radius: 1vw;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
+
+.btnleft{
+    display: block;
+    margin: auto;
+    width:60%;
+    border-radius: 1vw;
+    background-color: white;
+    color: black;
+}
+
+select{
+    display: block;
+    margin: auto;
+    width:60%;
+    border-radius: 1vw;
+    background-color: white;
+    color: black;
+    height:1.5vw;
+    margin-top: 1.5vw;;
+}
+
+# 
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    
+    
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="product.css">
+    <title>Admin Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                   <a href="#">
+                    <span class="icon"><i class="fa fa-apple" aria-hidden="true"></i></span>
+                    <span class="title"><h2>Runfast</h2></span>
+                   </a>
+                </li>
+                <li>
+                 <a href="adminpage.html        ">
+                    <span class="icon"><i class="fa fa-list-ul" aria-hidden="true"></i></span>
+                    <span class="title">DashBord</span>
+                 </a>
+                </li>
+                <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                    <span class="title">customer details</span>
+                </a>
+                </li>
+                <li>
+             <a href="#">
+                <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                <span class="title">Sign-Out</span>
+             </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle";"></div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="search here">
+                    </label>
+                </div>
+            </div>
+          
+          <div class="fromGrid">
+            <div class="addform">
+           
+                    <form id="formAdd">
+                        <h3>ADD Products</h3><br>
+                        <label for="product-name">Name:</label><br>
+                        <input type="text" id="product-name" name="product-name" placeholder="name of product" required><br>
+                      <label for="product-description">Brand:</label><br>
+                      
+                        <input  type="text" id="product-description" name="product-description" placeholder="brand name" required></input><br>
+                      <label for="product-price">Price:</label><br>
+                      <input type="number" id="product-price" name="product-price" placeholder="price" required><br>
+                      <label for="product-size">Size:</label><br>
+                      <input type="text" id="product-size" name="product-size" placeholder="size" required><br>
+                      <label for="product-color">Color:</label><br>
+                      <input type="text" id="product-color" name="product-color" placeholder="color" required><br>
+                      
+                      <label for="product-image">Image Url:</label><br>
+                      <input type="text" id="product-image" name="product-image " placeholder="image url" required><br><br>
+                      
+                        <input type="submit" id="addBtn" class="submitbtn"  value="Submit">
+                      </form>
+              
+            </div>
+            <div class="addform">
+          
+                    <form id="formUpdate">
+                        <h3>Update Products</h3><br>
+                        <label for="product-id">Product ID <sup>*</sup>:</label><br>
+                        <input type="text" id="update-product-id" name="product-id" placeholder="id" required><br>
+
+                        <label for="product-name"> Update  Name:</label><br>
+                        <input type="text" id="update-product-name" name="product-name" placeholder="name of product" required ><br>
+
+                      <label for="product-description">Update Brand :</label><br>
+                      <input  type="text" id="update-product-description" name="product-description"placeholder="brand name" required ></input><br>
+
+                      <label for="product-price"> Update Price:</label><br>
+                      <input type="number" id="update-product-price" name="product-price" placeholder="price" required><br>
+
+                      <label for="product-size">Update Size:</label><br>
+                      <input type="text" id="update-product-size" name="product-size" placeholder="size" required><br>
+
+                      <label for="product-color">Update Color:</label><br>
+                      <input type="text" id="update-product-color" name="product-color" placeholder="color" required><br>
+                      
+                      <label for="product-image"> Update Image:</label><br>
+                      <input type="text" id="update-product-image" name="product-image" required placeholder="image"><br><br>
+                      
+                        <input type="submit" class="submitbtn" value="Submit">
+                      </form>
+               
+            </div>
+            <div class="addform">
+             
+                    <form id="formEdit">
+                        <h3>Edit Products</h3><br>
+                        <label for="product-id">Product ID <sup>*</sup>:</label><br>
+                        <input type="text" id="edit-product-id" name="product-id" placeholder="id" required><br>
+
+                        <!-- <label for="product-name"> Edit Name:</label><br>
+                        <input type="text" id="edit-product-name" name="product-name" placeholder="name" ><br> -->
+
+                      <!-- <label for="product-description">Edit Brand:</label><br>
+                      <input  type="text" id="edit-product-description" name="product-description" placeholder="brand" ></input><br> -->
+                      
+                        <label for="product-price"> Edit Price:</label><br>
+                      <input type="number" id="edit-product-price" name="product-price" placeholder="price"><br>
+                      
+                        <label for="edit-product-size"> Edit Size:</label><br>
+                      <input type="text" id="edit-product-size" name="edit-product-size" placeholder="size"><br>
+                      
+                        <label for="edit-product-color"> Edit Color:</label><br>
+                      <input type="text" id="edit-product-color" name="edit-product-color" placeholder="color"><br>
+                      
+                      <label for="product-image"> Edit Image:</label><br>
+                      <input type="text" id="edit-product-image" name="product-image" placeholder="image url"><br><br>
+                      
+                        <input type="submit" class="submitbtn"  value="Submit">
+                      </form>
+              
+            </div>
+            <div class="addform">
+       
+                    <form id="formDel">
+                        <h3>Delete Products</h3><br>
+                        <label for="product-id">Product ID <sup>*</sup>:</label><br>
+                        <input type="text" id="delete-product-id" name="product-id" required><br><br>
+                        <input type="submit" class="submitbtn" value="Submit">
+                      </form>
+             
+            </div>
+          </div>
+            </div>
+         
+        </div>
+
+    
+</body>
+<script src="product.js"></script>
+</html>

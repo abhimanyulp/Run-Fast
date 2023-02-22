@@ -1,0 +1,37 @@
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&family=Roboto&display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
+.addform{
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    width: 250px;
+    border-radius: 20px;
+}
+.submitbtn{
+  padding: 5px 10px;
+  background-color: rgb(0,143,219);
+  color: white;
+  border-radius: 8px;
+  border: 0px;
+}
+.submitbtn:hover{
+background-color: rgb(10, 102, 151);
+
+}
+.addform form label{
+   font-weight: 600;
+   line-height: 30px;
+}
+.fromGrid{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+/* min-height: 10; */
+/* margin: auto; */
+
+}

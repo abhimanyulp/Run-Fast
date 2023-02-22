@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bag</title>
+    <link rel="stylesheet" href="./style/cart.css">
+</head>
+
+<body>
+    <!-- My code -->
+    <div id="heading">
+        <h1>Your Bag</h1>
+        <div id="login-nav">
+            <button class="log-btn">Login</button>
+        </div>
+        <div id="logout-nav">
+            <h1>userid</h1>
+            <button class="log-btn">Logout</button>
+        </div>
+    </div>
+    <div id="container-1">
+        <div id="container-product">
+            <!-- Append all the cart item here -->
+        </div>
+        <div id="coontainer-details">
+            <h1>Order Summary</h1>
+            <div id="sub-total">
+                <div>
+                    <P>Subtotal</P>
+                    <p>0</p>
+                </div>
+                <div>
+                    <p>Shipping</p>
+                    <p>Free</p>
+                </div>
+            </div>
+            <div id="total-box">
+                <p>Total</p>
+                <p id="total">0</p>
+            </div>
+            <button id="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <div id="login-container">
+        <div id="login-box">
+            <div id="login-heading">
+                <h1>Please Login</h1>
+            </div>
+            <div id="login-input">
+                <label for="user-in">Username</label>
+                <input type="email" name="username" id="user-in">
+                <label for="password-in">Password</label>
+                <input type="password" name="password" id="password-in">
+            </div>
+            <div id="login-btn-box">
+                <button id="login-btn" class="login-box-btn">Login</button>
+                <button id="register-btn" class="login-box-btn">Register</button>
+            </div>
+        </div>
+    </div>
+    <div id="address-page">
+        <div id="address-main">
+            <div id="address-container">
+                <div id="address-heading">
+                    <h1>Address</h1>
+                </div>
+                <div id="address-box">
+                    <label for="name-in">Name</label>
+                    <input type="text" name="name" id="name-in">
+                    <label for="address-in">Address</label>
+                    <input type="text" id="address-in">
+                    <label for="phone-in">Phone</label>
+                    <input type="number" name="phone" id="phone-in">
+                </div>
+            </div>
+            <div id="payment-container">
+                <div id="payment-heading">
+                    <h1>Card Details</h1>
+                </div>
+                <div id="payment-box">
+                    <label for="card-in">Card Number</label>
+                    <input type="number" id="card-in">
+                    <label for="card-name-in">Name on card</label>
+                    <input type="text" id="card-name-in">
+                    <label for="card-date-in">Expiry</label>
+                    <input type="month" name="expiry" id="card-date-in">
+                    <label for="cvv-in">CVV</label>
+                    <input type="number" name="cvv" id="cvv-in">
+                </div>
+            </div>
+        </div>
+        <div id="order-btn-container">
+            <button id="place-order">place order</button>
+        </div>
+    </div>
+
+</body>
+<script src="./script/cart.js"></script>
+
+</html>

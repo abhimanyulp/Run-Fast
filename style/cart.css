@@ -1,0 +1,228 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+#heading{
+    width: 90%;
+    /* border: 2px solid red; */
+    padding: 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.log-btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+}
+.log-btn:hover {
+    background-color: blue;
+    color: white;
+}
+
+
+
+
+
+#logout-nav{
+    width: 250px;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    /* display: none; */
+    display: flex;
+    /* Change this to flex after succesful login */
+}
+
+
+
+
+
+
+#container-1{
+    /* border: 2px solid black; */
+    width: 100%;
+    height: 70vh;
+    /* display: none; */
+    display: flex;
+}
+#container-product{
+    width: 70%;
+    overflow: auto;
+}
+#card{
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    margin-top: 30px;
+    /* border: 2px solid red; */
+}
+#card-box{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    /* border: 2px solid red; */
+}
+#details {
+    width: 50%;
+}
+#quantity {
+    /* border: 2px solid red; */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#quantity > button {
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+    border: none;
+}
+#quantity > button:hover{
+    color: white;
+    background-color: blue;
+}
+#removeBtn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 300px;
+    font-size: 20px;
+}
+#removeBtn:hover {
+    color: white;
+    background-color: red;
+}
+#coontainer-details{
+    background-color:#E6E9EA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    text-align: center;
+}
+#sub-total{
+    /* height: 30vh; */
+    width: 70%;
+}
+#sub-total > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#total-box{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+#checkout-btn{
+    width: 70%;
+    height: 30px;
+    background-color:#5BA443;
+    border: none;
+    border-radius: 20px;
+}
+#checkout-btn:hover {
+    background-color: lightgrey;
+}
+
+
+
+
+
+
+
+#login-container {
+    width: 100%;
+    height: 100vh;
+    position:absolute;
+    top: 0;
+    left: 0;
+    /* border: 2px solid red; */
+    display: none;
+    /* display: flex; */
+}
+#login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    background-color:whitesmoke;
+    margin: 15% 40%;
+    border-radius: 10px;
+}
+#login-heading {
+    /* border: 2px solid red; */
+    height: 55px;
+}
+#login-input {
+    /* border: 2px solid red; */
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+/* #login-btn-box {
+    border: 2px solid red;
+} */
+.login-box-btn {
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: lightgrey;
+}
+#address-page {
+    display: block;
+}
+#address-main {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    /* border: 2px solid red; */
+}
+#address-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#address-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#address-in {
+    height: 100px;
+}
+#payment-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#payment-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#order-btn-container {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#place-order {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #5BA443;
+    border: none;
+}

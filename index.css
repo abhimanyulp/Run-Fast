@@ -1,0 +1,393 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    display: flex;
+    /* border: 2px solid red; */
+    padding:10px
+}
+nav>div:nth-child(1){
+    /* border: 2px solid rgb(0, 0, 0); */
+    display: flex;
+    justify-content:space-evenly;
+    width: 30%;
+    align-items: center;
+}
+nav>div:nth-child(1)>h1{
+    color: rgb(126, 2, 175);
+}
+nav>div:nth-child(2){
+    /* border: 2px solid rgb(0, 0, 0); */
+    display: flex;
+    width: 100%;
+    justify-content:center;
+}
+nav>div:nth-child(2)>div{
+    /* border: 2px solid rgb(255, 0, 0); */
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+    align-items: center;
+}
+nav>div:nth-child(2)>div>input{
+    /* border: 2px solid rgb(0, 0, 0); */
+    padding:8px 10px 8px;
+    border-radius: 25px;
+}
+nav>div:nth-child(2)>div>div{
+    border: 2px solid rgb(0, 0, 0);
+    padding:7px 20px 7px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+}
+nav>div:nth-child(2)>div>div>span>img{
+    width: 20px ;
+    height: 20px;
+    margin: 1px 5px 1px;
+}
+nav div img{
+    width: 60px ;
+    height: 60px;
+}
+
+#links{
+    display: flex;
+    justify-content:center;
+    padding: 1%;
+    /* border: 2px solid red; */
+}
+#links>a{
+    margin: 0px 30px 0px;
+    text-decoration: none;
+    color: black;
+}
+#links>a:hover{
+    font-weight: 100;
+    color: rgb(0, 156, 254);
+}
+
+#blackstrip{
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    position: relative;
+}
+#blackstrip>button{
+    width: 30px;
+    height: 20px;
+}
+#blackstrip>div{
+    display: flex;
+    width: 50%;
+    overflow-x: auto;
+}
+#blackstrip>div::-webkit-scrollbar{
+    height: 0px;
+    width: 0px;
+}
+#blackstrip>div>div{
+    min-width:100%;
+    max-width:100%;
+    border: 2px solid red;
+    text-align: center;
+    /* position: absolute; */
+}
+#blackstrip>div>div>img{
+    width: 100px;
+    height: 100px;
+}
+#slideshow{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+#slideshow>div{
+    width: 80%;
+}
+#slideshow>div>img{
+    width: 100%;
+    border-radius: 25px;
+}
+#shoeCategory{
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid grey; */
+}
+#shoeCategory>div{
+    display: flex;
+    justify-content:space-around;
+    width: 80%;
+    border-style: groove none groove none;
+}
+#shoeCategory>div>a{
+    text-decoration: none;
+    color: black;
+    padding: 2%;
+}
+#ShopbyCategory{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#ShopbyCategoryh3{
+    text-align: center;
+    padding: 3% 0% 0%;
+}
+#ShopbyCategory>div{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(4,1fr);
+    margin:auto;
+    gap: 10px;
+    padding: 3%;
+}
+#ShopbyCategory a{
+    text-decoration: none;
+    color: black;
+}
+#ShopbyCategory>div>div>img{
+    width: 277px;
+}
+#ShopbyCategory>div>div
+{
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/* ===================================================================== */
+#shopbybrandhead{
+    text-align: center;
+}
+#shopbybrand{
+    display: flex;
+    justify-content: center;
+    margin:2%;
+    align-items: center;
+}
+#shopbybrand>div{
+    display: flex;
+    overflow-x: auto;
+    width: 75%;
+    margin:1%;
+    /* border: 2px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#shopbybrand>div::-webkit-scrollbar{
+    height: 0px ;
+    width: 0px;
+}
+#shopbybrand>div>div{
+    /* border: 2px solid red; */
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#shopbybrand>div>div>img{
+    min-width:150px;
+    max-width: 150px;
+    min-height:150px;
+    max-height:150px ;
+}
+#btn12{
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    border-radius: 2px;
+}
+#btn21{
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    border-radius: 2px;
+}
+#shopallbrands{
+    text-align: center;
+}
+
+#Toptrend{
+    display: flex;
+    justify-content: center;
+    /* width: 70%; */
+    margin: 1%;
+}
+#Toptrend>div{
+    display: flex;
+    /* justify-content: center; */
+    width: 80%;
+    /* border: 2px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+}
+#Toptrend>div>div{
+    margin: 1%;
+}
+#Toptrend>div>div>img{
+    width: 100%;
+    height: 90%;
+}
+/* ================================================================================================ */
+#recomended{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    margin: 2%;
+}
+#recomended>div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+}
+#box3{
+    display: flex;
+    width: 80%;
+    overflow-x: auto;
+    margin: 1%;
+}
+#box3::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+}
+#recomended>div>div{
+    min-width:20%;
+    max-width: 20%;
+    margin: 2%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#recomended>div>div:hover{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+#box3>div>img{
+    width: 100%;
+}
+#bb1{
+    border: 0px;
+    width: 50px;
+    height: 50px;
+}
+#bb2{
+    border: 0px;
+    width: 50px;
+    height: 50px;
+}
+/* =================================================================================== */
+#fourbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fourbox>div:nth-child(1){
+    padding: 2%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#fourbox>div:nth-child(2){
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+/* =========================================================================== */
+#ft2{
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid red; */
+    margin: 3% 0 2%;
+}
+#ft2>div{
+    /* border: 2px  solid black; */
+    width: 80%;
+    padding: 1%;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+#ft2>div>div:nth-child(1)>img{
+   padding-top: 1%;
+   padding-bottom: 1%;
+}
+#ft2>div>div:nth-child(2)>img{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#ft2of3>div{
+    display: flex;
+}
+#leftbox{
+    width: 70%;
+    padding: 2%;
+    font-size: 15px;
+}
+
+#rightbox{
+    display: flex;
+    padding: 2%;
+    font-size: 15px;
+}
+#rightbox>div{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+#rightbox>div>a{
+    text-decoration: none;
+    color: black;
+}
+/* ============================================================== */
+#footer1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:15px;
+}
+#firstbox{
+    display: flex;
+    width: 70%;
+}
+#firstbox>div{
+    display: flex;
+    width: 25%;
+    /* border: 2px solid red; */
+    border-radius: 20px;
+    align-items: center;
+    padding: 1%;
+    background-color: black;
+    color: white;
+    margin: 1%;
+}
+#firstbox>div>img{
+    width: 60px;
+    height: 60px;
+    margin: 1%;
+    filter: invert();
+}
+#firstbox>div>div{
+    margin: 1%;
+    border-radius: 10px;
+}
+/* ============================================================================ */
+footer{
+    background-color: azure;
+    font-size: 15px;
+}
+#footerlast{
+    display: flex;
+    justify-content: center;
+}
+#footerlast>div{
+    display: flex;
+    padding: 1%;
+    width: 80%;
+}
+#footerlast>div>div{
+    padding: 1%;
+    width: 20%;
+}

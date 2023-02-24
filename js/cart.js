@@ -12,7 +12,7 @@ let couponSel = document.getElementById("coupon-sel");
 
 
 let userIdTag = document.getElementById("user-id-tag")
-userIdTag.innerText = `User: ${LSkeyData}`;
+
 
 let totalEl = document.getElementById("total");
 let subtotalEl = document.getElementById("subtotal");
@@ -40,10 +40,12 @@ fetch(URL, {
     .then(data => {
         // console.log(data)
         UserData = FilterUser(data)
+        UserName = UserData[0].name
 
         UserCart = UserData[0].cart;
 
         Display(UserCart);
+        userIdTag.innerText = `User: ${UserName}`;
     })
 
 

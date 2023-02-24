@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,45 +8,75 @@
     <title>Checkout</title>
     <link rel="stylesheet" href="./style/checkout.css">
 </head>
+
 <body>
     <!-- My code -->
     <div id="heading">
         <h1>Your Bag > Checkout</h1>
-        <h1>userid</h1>
+        <h1 id="user-tag">userid</h1>
     </div>
     <div id="address-page">
+        <div id="product-container">
+            <div id="products">
+                <!-- Append all the product card here -->
+            </div>
+            <div id="total-final">
+                <h1></h1>
+            </div>
+        </div>
         <div id="address-main">
             <div id="address-container">
-                <div id="address-heading">
-                    <h1>Address</h1>
-                </div>
+                <h1>Deliver to:</h1>
                 <div id="address-box">
-                    <h1>
-                        <!-- Append user address here -->
-                    </h1>
+                    <!-- Append user address here -->
                 </div>
-            </div>
-            <div id="payment-container">
-                <div id="payment-heading">
-                    <h1>Card Details</h1>
-                </div>
-                <div id="payment-box">
-                    <label for="card-in">Card Number</label>
-                    <input type="number" id="card-in">
-                    <label for="card-name-in">Name on card</label>
-                    <input type="text" id="card-name-in">
-                    <label for="card-date-in">Expiry</label>
-                    <input type="month" name="expiry" id="card-date-in">
-                    <label for="cvv-in">CVV</label>
-                    <input type="number" name="cvv" id="cvv-in">
+                <h1>Payment</h1>
+                <div id="payment-container">
+                    <div id="payment-select">
+                        <div id="cod">
+                            <label for="cod">Cash on Delivery</label>
+                            <input type="checkbox" name="" id="cod-in" checked>
+                        </div>
+                        <div id="online">
+                            <label for="card">Online</label>
+                            <input type="checkbox" name="" id="card-in">
+                        </div>
+                    </div>
+                    <div id="payment-box">
+                        <label for="card-in">Card Number</label>
+                        <input type="number" id="card-in">
+                        <label for="card-name-in">Name on card</label>
+                        <input type="text" id="card-name-in">
+                        <label for="card-date-in">Expiry</label>
+                        <input type="month" name="expiry" id="card-date-in">
+                        <label for="cvv-in">CVV</label>
+                        <input type="number" name="cvv" id="cvv-in">
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="order-btn-container">
-            <a href="./cart.html">Back</a>
-            <button id="place-order">place order</button>
+    </div>
+
+    <div id="order-btn-container">
+        <div id="order-btn-box">
+            <button id="back" class="checkout-bottom-btn"><a href="./cart.html">Back</a></button>
+            <button id="place-order" class="checkout-bottom-btn">Place order</button>
         </div>
+    </div>
+
+    <div id="otp-box">
+        <h1>Please Enter OTP</h1>
+        <form action="#">
+            <div id="input-field">
+                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" id="otp-1">
+                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" id="otp-2">
+                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" id="otp-3">
+                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" id="otp-4">
+            </div>
+        </form>
+        <input id="input-btn" type="submit">
     </div>
 </body>
 <script src="./script/checkout.js"></script>
+
 </html>

@@ -6,10 +6,14 @@
 font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;
 }
+/* .addform>input{
+  margin: 5px;
+} */
 .addform{
     margin: 20px;
     padding: 20px;
-    background-color: white;
+    /* background-color: rgb(240,240,240); */
+    border: 1px solid rgb(49, 49, 49);
     width: 250px;
     border-radius: 20px;
 }

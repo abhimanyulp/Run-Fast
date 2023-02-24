@@ -24,7 +24,7 @@ body{
     position: fixed;
     width: 250px;
     height: 100%;
-    background-color: rgb(51,51,51);
+    background-color: rgb(240,240,240);
     transition:0.5s;
     overflow: hidden;
 }
@@ -58,7 +58,7 @@ body{
     width: 100%;
     display: flex;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 .navigation ul li a .icon{
     position: relative;
@@ -71,12 +71,12 @@ body{
 }
 .fa-apple:before {
     content: "\f179";
-    color: rgb(51,51,51);
+    color: rgb(240,240,240);;
 }
 .navigation ul li a .icon .fa{
     
     /* color: black; */
-    color: white;
+    color: black;
     font-size: 16px;
 }
 .navigation ul li a .title{
@@ -96,7 +96,7 @@ body{
     /* width: 100%; */
     left: 250px;
     min-height: 100vh;
-    background-color: lightblue;
+    background-color: rgb(255, 255, 255);
     transition: 0.5s;
 
 }
@@ -111,7 +111,7 @@ body{
 width: 100%;
 height: 60px;
 display: flex;
-background-color: rgb(51,51,51);
+background-color: rgb(240,240,240);
 justify-content: space-between;
 align-items: center;
 }
@@ -162,10 +162,10 @@ align-items: center;
 }
 .cardbox .card{
     position: relative;
-    background-color: #fff;
+    background-color: #dfdfdf;
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     cursor:pointer;
     border-radius: 10px;
 }
@@ -178,7 +178,7 @@ font-weight: 500;
     color: dodgerblue;
 }
 .cardbox .card .iconBox{
-    color:rgb(122, 122, 240);
+    color: rgb(127 118 118);
     font-size: 35px;
 }
 .cardbox .card .iconBox:hover{
@@ -252,17 +252,17 @@ text-align:left;
     padding: 3px 8px;
     border-radius: 6px;
 }
-.delivered{
+.Delivered{
     background-color: rgb(6, 185, 6);
 }
-.pending{
+.Pending{
     background-color: rgb(230, 248, 66);
     color: black;
 }
-.return{
+.Return{
     background-color: red;
 }
-.progress{
+.Progress{
     background-color: blue;
 }
 

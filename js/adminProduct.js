@@ -47,7 +47,7 @@ function getrandome(max){
 
    async function addToDb(name,brand,price,size,color,image,rating){
 
-    let addData= await fetch('https://userlogin-nxh8.onrender.com/data',{
+    let addData= await fetch('https://nutritious-sugared-fur.glitch.me/data',{
         method:'POST',
         headers:{
             "Content-Type": "application/json"
@@ -97,7 +97,7 @@ function updateFormData(e){
 
 async function updateProductAll(id,name,brand,price,size,color,image){
 
-    let updateData=await fetch(`https://userlogin-nxh8.onrender.com/data/${id}`,{
+    let updateData=await fetch(`https://nutritious-sugared-fur.glitch.me/data/${id}`,{
         method:'PUT',
         headers:{
             "Content-Type":"application/json"
@@ -146,7 +146,7 @@ console.log(id,price,size,color,image)
 }
 
  async function editProduct(id,price,size,color,image){
-let editData= await fetch(`https://userlogin-nxh8.onrender.com/data/${id}`,{
+let editData= await fetch(`https://nutritious-sugared-fur.glitch.me/data/${id}`,{
     method:"PATCH",
     headers:{
         "Content-Type":"application/json"
@@ -179,7 +179,7 @@ delfun(id)
 }
 
   async function delfun(id){
-let DelData= await fetch(`https://userlogin-nxh8.onrender.com/data/${id}`,{
+let DelData= await fetch(`https://nutritious-sugared-fur.glitch.me/data/${id}`,{
     method:"DELETE",
     headers:{
             "Content-Type":"application/json"

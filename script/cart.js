@@ -1,37 +1,106 @@
-let users = [{
-    username:"abhilp",
-    password:"1234",
-    address:"123/4 some road, some locallity, new delhi",
-    cart:[{
-        item: "MEN'S NIKE AIR FORCE",
-        price: "100",
-        color: "white",
-        img: "https://media.finishline.com/s/finishline/CW2288_111?$Main$&bg=rgb(237,237,237)&fmt=webp&h=245&w=245"
-    },
-    {
-        item: "AIR JORDAN RETRO 5",
-        price: "200",
-        color: "black",
-        img: "https://media.finishline.com/s/finishline/DD0587_047?$Main$&bg=rgb(237,237,237)&fmt=webp&h=245&w=245"
-    },
-    {
-        item: "WOMEN'S AIR JORDAN RETRO",
-        price: "200",
-        color: "red",
-        img: "https://media.finishline.com/s/finishline/DD9336_800?$Main$&bg=rgb(237,237,237)&fmt=webp&h=245&w=245"
-    }]
-}
-// continue..................
-]
 
 
+let LSkeyData = "Abhimanyu"
 
+// let LSkeyData = JSON.parse(localStorage.getItem("key"))
+
+const URL = "https://userlogin-nxh8.onrender.com/users";
 
 let container = document.getElementById("container-product");
+let checkoutbtn = document.getElementById("checkout");
+let couponSel = document.getElementById("coupon-sel");
 
-Display(users[0].cart)
+
+let userIdTag = document.getElementById("user-id-tag")
+userIdTag.innerText = `User: ${LSkeyData}`;
+
+let totalEl = document.getElementById("total");
+let subtotalEl = document.getElementById("subtotal");
+let subtotal = 0;
+let total = 0;
 
 
+let UserData;
+let UserCart;
+let OrderData;
+
+
+
+
+
+
+//Fetching cart data
+fetch(URL, {
+    method: "GET",
+    headers: {
+        'Content-type': 'application/json'
+    }
+})
+    .then(res => res.json())
+    .then(data => {
+        // console.log(data)
+        UserData = FilterUser(data)
+
+        UserCart = UserData[0].cart;
+
+        Display(UserCart);
+    })
+
+
+
+
+
+
+
+//Apply coupon selector and changing total amount only once
+let flag = true;
+couponSel.addEventListener("change", () => {
+
+    if (couponSel.value == 10 && flag == true) {
+        total = total - ((total / 100) * 10)
+        totalEl.innerText = `$${total}`;
+        flag = false
+    }
+})
+
+
+
+
+
+//Temperoly saving order data to local stroage
+checkoutbtn.addEventListener("click", () => {
+    OrderData = {
+        username: LSkeyData,
+        totalAmount: total
+    }
+    localStorage.setItem("order", JSON.stringify(OrderData));
+})
+
+
+
+
+
+
+
+
+
+//Filtering data with LS key to specific user
+function FilterUser(data) {
+    let filtered = data.filter((element) => {
+        if (LSkeyData == element.username) {
+            return true
+        } else {
+            return false;
+        }
+    })
+    return filtered;
+}
+
+
+
+
+
+//Display Function
 
 function Display(data) {
     container.innerHTML = null;
@@ -46,14 +115,14 @@ function Display(data) {
         card_box.setAttribute("id", "card-box");
 
         let img = document.createElement("img")
-        img.src = element.img;
+        img.src = element.image;
 
         let details = document.createElement("div");
         details.setAttribute("id", "details")
 
 
         let title = document.createElement("p")
-        title.innerText = element.item;
+        title.innerText = element.name;
 
         let color = document.createElement("p")
         color.innerText = element.color;
@@ -62,17 +131,54 @@ function Display(data) {
         let price = document.createElement("p")
         price.innerText = `$${element.price}`;
 
+        total += element.price;
+        subtotal += element.price;
+        totalEl.innerText = `$${total}`;
+        subtotalEl.innerText = `$${subtotal}`;
+
+
         let quantity = document.createElement("div");
         quantity.setAttribute("id", "quantity")
 
         let btm_dec = document.createElement("button")
         btm_dec.innerText = "-"
 
+
         let value = document.createElement("p")
         value.innerText = 1
 
         let btm_inc = document.createElement("button")
         btm_inc.innerText = "+"
+
+
+
+        btm_dec.addEventListener("click", () => {
+
+            if (value.innerText > 1) {
+                total -= element.price;
+                totalEl.innerText = `$${total}`;
+
+                subtotal -= element.price;
+                subtotalEl.innerText = `$${subtotal}`;
+
+                value.innerText--
+            }
+        })
+
+        btm_inc.addEventListener("click", () => {
+
+            total += element.price;
+            totalEl.innerText = `$${total}`;
+
+            subtotal += element.price;
+            subtotalEl.innerText = `$${subtotal}`;
+
+            value.innerText++
+
+
+        })
+
+
 
         let remove = document.createElement("button");
         remove.innerText = "x"

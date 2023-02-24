@@ -136,11 +136,11 @@ function fetchUsers(pageNumber) {
     <div class="smallCard">
       <img src="${imageURL}"/>
       <p>${name}</p>
-      <p>${price}</p>
-      <p>${size}</p>
-      <p>${color}</p>
-      <p>${brand}</p>
-      <p>${rating}</p>
+      <p>Price :${price}</p>
+      <p>Size :${size}</p>
+      <p>Color :${color}</p>
+      <p>Brand :${brand}</p>
+      <p>Rating :${rating}</p>
       <button class="btnCart" id=${id}>Add To Cart</button>
     </div>  
     `
@@ -152,7 +152,7 @@ function fetchUsers(pageNumber) {
     let str = "";
     let numberOfButtons = Math.ceil(total/limit);
     for(let i = 0; i < numberOfButtons; i ++){
-      str = str + `<button>${i+1}</button>`
+      str = str + `<button class="paginationBtn">${i+1}</button>`
     }
     let paginationWrapper = document.getElementById("pagination-wrapper");
     paginationWrapper.innerHTML = str;

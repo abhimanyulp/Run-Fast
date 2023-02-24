@@ -1,4 +1,3 @@
-
 nav{
     display: flex;
     /* border: 2px solid red; */
@@ -123,8 +122,91 @@ select{
     margin-top: 1.5vw;;
 }
 
+#data-list-wrapper.smallCard{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
 
+#card-list{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:1vw;
+    margin: auto;
+}
+
+#card-list  img {
+    width:15vw;
+    height:15vw;
+    display: block;
+    margin: auto;
+    width:100%
+}
+
+#card-list  p {
+    
+    margin: auto;
+}
 
 .smallCard{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-radius: 2vw;;
+}
+
+.smallCard>img{
+    border-radius: 2vw;;
+}
+
+.smallCard:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 2vw;
+} 
+
+.smallCard>img:hover{
+    border-radius: 2vw;
+}
+
+.paginationBtn{
+    margin-top: 2vw;
+    width:4vw;
+    height: 3vw;;
+    border-radius: 1vw;
+    background-color: white;
+    font-size: medium;
+    margin-left: 1vw;
+
+}
+
+.paginationBtn:hover{
+    
+    background-color: black;
+    color: white;
+    font-size: medium;
+
+}
+
+
+.btnCart{
+    width:20vw;
+    height:2.5vw;
+    margin-top: 2vw;
+    border-radius: 1vw;
+    background-color: white;
+    font-size: medium;
+
+}
+
+.btnCart:hover{
+    background-color: black;
+    color: white;
+    
+}
+
+.smallCard > :nth-child(2){
+    display: none;
+}
+
+.smallCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

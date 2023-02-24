@@ -3,15 +3,29 @@ let baseServerURL = "https://userlogin-nxh8.onrender.com";
 
 
 //In reality ,this data I will get from local storage which is being done by Pranay
-let obj = {
-  userid: "3iyejk",
-  username: "omkar21143",
-  name: "omkar walvalkar",
-  email: "omkar21143@gmail.com",
-  password: "omkar",
-  address: "122 3rd cross MG road Belgaum Karnataka "
+
+let obj =[3]
+let  localCart=[]
+ function putrequestCart(obj){
+    let url = `https://userlogin-nxh8.onrender.com/users/${obj}`
+    fetch(url)
+    .then((res)=>{
+      // console.log(res)
+      return res.json();
+    })
+    .then((data)=>{
+     localCart=data;
+     localStorage.setItem("localCartData",JSON.stringify(localCart));
+    // console.log(localCart);
+      // console.log(data);
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
-  localStorage.setItem("obj",JSON.stringify(obj));
+  putrequestCart(obj)
+
+  // localStorage.setItem("obj",JSON.stringify(obj));
   //Remove only obj code
   ///Remove the above code, warna khela ho jayega presentation time hahahahahah
 
@@ -28,12 +42,12 @@ function fetchUsers(pageNumber) {
     .then((res)=>{
       let total = res.headers.get("X-Total-Count");
       createButton(total);
-      console.log(total);
+      // console.log(total);
       return res.json();
     })  
     .then((data)=>{
       arr = data;
-      console.log(data);
+      // console.log(data);
       display(data);
     })
     .catch((error)=>{
@@ -54,16 +68,15 @@ function fetchUsers(pageNumber) {
             return false;
           }
         })
-        
         addToLS(filteredData);
-        console.log(filteredData);
-       
+        console.log(filteredData);       
       })
     }
+    
   }
 
-  function changeInJsonServer(loggedInUser){
-    let url = "https://userlogin-nxh8.onrender.com/users";
+  function changeInJsonServer(loggedInUser,id){
+    let url = `https://userlogin-nxh8.onrender.com/users/${id}`;
     fetch((url),{
       method:"PUT",
       headers: {
@@ -83,23 +96,23 @@ function fetchUsers(pageNumber) {
   }
 
   function addToLS(filteredData){
-        let x = localStorage.getItem("obj");
+        let x = localStorage.getItem("localCartData");
+        
         let loggedInUser = JSON.parse(x);
+        let id = loggedInUser.id;
+        console.log(id);
         if(loggedInUser.cart !== undefined){
             loggedInUser.cart.push(filteredData[0]);
         } else {
           loggedInUser.cart = filteredData;
         }
 
-        localStorage.setItem("obj", JSON.stringify(loggedInUser));
-        changeInJsonServer(loggedInUser);
+        localStorage.setItem("localCartData", JSON.stringify(loggedInUser));
+        changeInJsonServer(loggedInUser,id);
   }
 
 
-  function addToUser(filteredData){
-    let url = "https://userlogin-nxh8.onrender.com/users";
-    
-  }
+  
 
   function cardList(data) {
     return `
@@ -123,19 +136,15 @@ function fetchUsers(pageNumber) {
     <div class="smallCard">
       <img src="${imageURL}"/>
       <p>${name}</p>
-      <p>${price}</p>
-      <p>${size}</p>
-      <p>${color}</p>
-      <p>${brand}</p>
-      <p>${rating}</p>
+      <p>Price :${price}</p>
+      <p>Size :${size}</p>
+      <p>Color :${color}</p>
+      <p>Brand :${brand}</p>
+      <p>Rating :${rating}</p>
       <button class="btnCart" id=${id}>Add To Cart</button>
     </div>  
     `
   }
-
-
-
-
 
 
   function createButton(total){
@@ -143,7 +152,7 @@ function fetchUsers(pageNumber) {
     let str = "";
     let numberOfButtons = Math.ceil(total/limit);
     for(let i = 0; i < numberOfButtons; i ++){
-      str = str + `<button>${i+1}</button>`
+      str = str + `<button class="paginationBtn">${i+1}</button>`
     }
     let paginationWrapper = document.getElementById("pagination-wrapper");
     paginationWrapper.innerHTML = str;

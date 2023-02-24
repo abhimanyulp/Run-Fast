@@ -7,6 +7,12 @@ nav{
     /* border: 2px solid red; */
     padding:10px
 }
+#searchbox{
+    width: 30%;
+}
+#blackstrip{
+    text-align: center;
+}
 nav>div:nth-child(1){
     /* border: 2px solid rgb(0, 0, 0); */
     display: flex;
@@ -69,14 +75,17 @@ nav div img{
     color: rgb(0, 156, 254);
 }
 /* ============================================================================== */
+
+/* ============================================================================== */
 #selectors{
-    display: flex;
+    display:grid;
+    grid-template-columns: repeat(8,1fr);
     justify-content: center;
 }
 .dropbtn {
     padding: 7px;
     border: none;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: bolder;
     text-transform: uppercase;
     background-color: white;
@@ -137,7 +146,6 @@ nav div img{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
     position: relative;
     margin-bottom: 2%;
 }
@@ -302,7 +310,6 @@ img {vertical-align: middle;}
     text-align: center;
     cursor: pointer;
 }
-
 
 /* ===================================================================== */
 #shopbybrandhead{

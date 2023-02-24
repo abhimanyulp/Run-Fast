@@ -1,0 +1,177 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+
+
+
+/* Navbar */
+#heading{
+    width: 90%;
+    /* border: 2px solid red; */
+    padding: 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+/* Main Container */
+#address-page {
+    display: flex;
+    width: 100%;
+}
+
+
+/* Product Container */
+#product-container {
+    width: 50%;
+    padding-top: 80px;
+}
+#products {
+    margin: auto;
+    width: 90%;
+    height: 70vh;
+    /* border: 5px solid grey; */
+    background-color: whitesmoke;
+    border-radius: 20px;
+    overflow: auto;
+}
+#card {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+#card > img{
+    width: 100px;
+}
+#title-card {
+    width: 40%;
+}
+#total-final {
+    text-align: center;
+    /* border: 2px solid red; */
+}
+
+
+
+/* Address and payment container */
+#address-main {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* height: 70vh; */
+    /* border: 2px solid red; */
+}
+
+#address-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+#address-box {
+    width: 65%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* border: 5px solid grey; */
+    background-color:whitesmoke;
+    border-radius: 20px;
+}
+
+
+/* Payment Container */
+#payment-container {
+    width: 70%;
+    /* height: 40vh; */
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 5px solid grey; */
+    background-color:whitesmoke;
+    border-radius: 20px;
+}
+#payment-select {
+    width: 50%;
+    display: flex;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+#payment-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Order & Back button container */
+#order-btn-container {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+.checkout-bottom-btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    /* background-color: #5BA443; */
+    border: none;
+    margin: 20px;
+}
+.checkout-bottom-btn > a {
+    text-decoration: none;
+    color: black;
+}
+.checkout-bottom-btn > a:hover {
+    color: white;
+}
+#place-order{
+    background-color: #5BA443;
+}
+#back:hover{
+    background-color: gray;
+}
+#place-order:hover {
+    background-color: gray;
+    color: white;
+}
+
+
+/* Opt box */
+
+#otp-box {
+    width: 300px;
+    height: 200px;
+    background-color: whitesmoke;
+    border: 3px solid lightsteelblue;
+    border-radius: 20px;
+    position: absolute;
+    top: 300px;
+    left: 40%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    display: none;
+    /* display: flex; */
+    /* change this to flex on vaccinate button click */
+}
+
+#input-field {
+    display: flex;
+    flex-direction: row;
+}
+#input-field > input {
+    width: 10px;
+}

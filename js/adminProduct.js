@@ -10,6 +10,8 @@ let main=document.querySelector('.main');
 main.classList.toggle('active');
 }
 
+
+
 // Addform data 
 const addSubmitbtn=document.getElementById('formAdd');
 const  AddproductName=document.querySelector('#product-name');

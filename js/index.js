@@ -79,44 +79,66 @@ function showSlides(n) {
 }
 
 // ===========================================================================================
-var modal = document.getElementById('id01');
-
-window.onload = function(event) {
-    setTimeout(() => {
-        modal.style.display="block"
-    }, 3000);
-}
-
-// window.onclick=function(){
-//     if(modal==)
-// }
-
-// ==========================================================================================
-
 let createaccountbtn=document.getElementById("createaccountbtn")
 let Div1=document.getElementById("id01")
 let Div2=document.getElementById("id02")
+
+var modal = document.getElementById('id01');
+
+let accesskey=[]
+
+console.log(accesskey)
+
+window.onload = function(event) {
+    if(accesskey.length==0){
+        setTimeout(() => {
+            modal.style.display="block"
+        }, 3000);
+    }else{
+        Div1.style.display="none"
+        Div2.style.display="none"
+    }
+}
+
+// ==========================================================================================
 
 createaccountbtn.onclick=function(e){
     e.preventDefault()
     Div1.style.display="none";
     Div2.style.display="block"
 }
-
+let clearlocal=document.getElementById("accountbtn")
+clearlocal.onclick=function(){
+    localStorage.clear()
+    window.location.reload()
+}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 //========================================================================================
 
-let loginUsername=document.getElementById("loginUser")
+let loginEmail=document.getElementById("loginUser")
 let loginPassword=document.getElementById("loginPass")
 let loginBtn=document.getElementById("loginbtn")
 
 loginBtn.addEventListener("click",(e)=>{
     e.preventDefault()
-    checkEmployees()
+    
+    if(checkEmployees()){
+        Div1.style.display="none"
+        Div2.style.display="none"
+        // window.location.reload()
+    }
+    // console.log(checkEmployees())
 })
-let user=[]
+
+let showName=document.querySelector("#accountbtn p")
 function checkEmployees(){
+    let user=[]
     let userObj={
-        username:loginUsername.value,
+        email:loginEmail.value,
         password:loginPassword.value
     };
 
@@ -126,17 +148,21 @@ function checkEmployees(){
         'Content-type':'application/json'
       }
     })
+
     .then ((res) => res.json ())
     .then ( (data) => {
         data.filter(ele =>{
-            if(ele.username==userObj.username && ele.password == userObj.password){
-                alert("Login Successful")
-                user.push(ele.username)
+            if(ele.email==userObj.email && ele.password == userObj.password){
+                // Swal.fire('Login Successful')
+                alert("Login successful")
+                showName.innerHTML=`Hello,${ele.name}`
+                user.push(ele.id)
                 localStorage.setItem("username",JSON.stringify(user))
                 return true
             }
         })
     })
+    return fetch
   }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -149,14 +175,18 @@ let signupbtn=document.getElementById("signupbtn")
 signupbtn.addEventListener("click",(e)=>{
     e.preventDefault()
     fetchAndAddEmployees()
+    // Swal.fire('Account Created')
+    alert("Account created")
+    window.location.reload()
 })
  
 function fetchAndAddEmployees(){
     let userObj={
         name:signName.value,
-        username:signUsername.value,
+        email:signUsername.value,
         address:signAddress.value,
-        password:signPassword.value
+        password:signPassword.value,
+        cart:[]
     };
     
     console.log(userObj)
@@ -173,4 +203,24 @@ function fetchAndAddEmployees(){
     console. log (data);
     })
   }
+
+  //=====================================================================
+  const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
   

@@ -1,13 +1,190 @@
 
-let baseServerURL = "https://userlogin-nxh8.onrender.com";
+
+let baseServerURL = "https://nutritious-sugared-fur.glitch.me";
+let paginationWrapperGlobal = document.getElementById("pagination-wrapper");
+let userId = localStorage.getItem('key');
+if(userId != null) {
+    userId = JSON.parse(userId)[0];
+}
+
+if(localStorage.getItem('localCartData') != null) {
+  let url = `${baseServerURL}/users`;
+fetch(url)
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        getActualUser(data);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+}
 
 
-//In reality ,this data I will get from local storage which is being done by Pranay
+function getActualUser(users) {
+    let currentUser = users.filter(user => {
+        if(user.id == userId) {
+            return true;
+        }
+        return false;
+    })
+    if(currentUser.length > 0) {
+        let user = currentUser[0];
+        localStorage.setItem('localCartData', JSON.stringify(user));
+    }
+}
 
-let obj =[3]
+
+let filter1 = document.getElementById("sort");
+filter1.addEventListener('change', (event) => {
+  let value = event.target.value;
+  if(value == 'sort') {
+    let url = `${baseServerURL}/data?_limit=12&_page=1`;
+    fetchShoes(url);
+    return;
+  }
+    let url = `${baseServerURL}/data?_limit=12&_page=1&_sort=price&_order=${value}`;
+    fetchSortedData(url, value);
+})
+
+
+function fetchSortedData(url, order){
+  fetch(url)
+  .then((res)=>{
+    let total = res.headers.get("X-Total-Count");
+    createButtonForSorting(total, order);
+    return res.json();
+  })  
+  .then((data)=>{
+    arr = data;
+    display(data);
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
+}
+
+let btnPrice = document.getElementById("btnPrice");
+btnPrice.addEventListener(("click"),event=>{
+  let value = document.getElementById("inputPrice").value;
+  if(value == '' || value == undefined) {
+    let url = `${baseServerURL}/data?_limit=12&_page=1`;
+    fetchShoes(url)
+    return;
+  }
+  let url = `${baseServerURL}/data`;
+  getFilteredData(url);
+})
+
+function getFilteredData(url){
+  fetch(url)
+  .then((res)=>{
+    return res.json();
+  })
+  .then((data)=>{
+    let filteredData = filterTheData(data);
+    if(filteredData.length == 0){
+      alert("The price for which you are searching is not available,please Enter other amount")
+      let url = `${baseServerURL}/data`;
+      fetchShoes(url);
+    }
+    paginationWrapperGlobal.innerHTML = null;
+    displayHelper(filteredData);
+  })
+  .catch((error)=>{
+    console.log(error)
+  })
+}
+
+
+function filterTheData(data){
+  let inputPrice = document.getElementById("inputPrice");
+  let filteredData = data.filter((element)=>{
+    if(element.price <= inputPrice.value){
+      return true;
+    } else {
+      return false;
+    }
+  })
+  return filteredData;
+}
+
+let btnBrand = document.getElementById('btnBrand');
+btnBrand.addEventListener("click",(event)=>{
+  let value = document.getElementById("inputBrand").value;
+  if(value == '' || value == undefined) {
+    alert('Please enter the brand');
+    return;
+  }
+  let url = `${baseServerURL}/data`;
+  fetchFilter(url, 'brand', value);
+})
+
+let colorFilter = document.getElementById('colorSelect');
+colorFilter.addEventListener("change",(event)=>{
+  let value = event.target.value
+  if(value == '') {
+    return;
+  }
+  let url = `${baseServerURL}/data`;
+  fetchFilter(url, 'color', value);
+})
+
+
+let btnRating = document.getElementById("btnRating");
+btnRating.addEventListener("click",(event)=>{
+  let value = document.getElementById("ratingValue").value;
+  if(value == '' || value == undefined || value > 5) {
+    alert("Please Enter The Rating value Greater Than Equal To 1 And Less Than Equal To 5")
+    return;
+  }
+  let url = `${baseServerURL}/data`;
+  fetchFilter(url, 'rating', value);
+})
+
+function fetchFilter(url, filterWith, value){
+  fetch(url)
+  .then((res)=>{
+    return res.json();
+  })
+  .then((data)=>{
+    let filteredRatingData = filterData(data, filterWith, value);
+    paginationWrapperGlobal.innerHTML = null;
+    displayHelper(filteredRatingData);
+  })
+  .catch((error)=>{
+    console.log(error)
+  })
+}
+
+function filterData(data, filterWith, value){
+  let filteredData = data.filter((element)=>{
+    if(filterWith == 'rating') {
+      if(element[filterWith] == value){
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if(element[filterWith] && element[filterWith].toUpperCase() == value.toUpperCase()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  })
+  return filteredData;
+}
+
+
+let obj =[3];
+
+// keyData.push(obj);
+// localStorage.setItem("key",JSON.stringify(keyData));
 let  localCart=[]
  function putrequestCart(obj){
-    let url = `https://userlogin-nxh8.onrender.com/users/${obj}`
+    let url = `${baseServerURL}/users/${obj}`
     fetch(url)
     .then((res)=>{
       // console.log(res)
@@ -33,11 +210,12 @@ let  localCart=[]
 let mainSection = document.getElementById("data-list-wrapper");
 let arr = [];
 window.addEventListener("load", (event) => {
-  fetchUsers(1);
+  let url = `${baseServerURL}/data?_limit=12&_page=1`;
+  fetchShoes(url);
 });
 
-function fetchUsers(pageNumber) {
-    let url = `${baseServerURL}/data?_limit=12&_page=${pageNumber}`;
+function fetchShoes(url) {
+    
     fetch(url)
     .then((res)=>{
       let total = res.headers.get("X-Total-Count");
@@ -55,8 +233,13 @@ function fetchUsers(pageNumber) {
     })
   }
 
-  function display(data) {
+  function displayHelper(data) {
+    mainSection.innerHTML = null;
     mainSection.innerHTML = cardList(data);
+  }
+
+  function display(data) {
+    displayHelper(data);
     let buttonElement = document.getElementsByClassName("btnCart");
     for(let i = 0; i < buttonElement.length; ++ i) {
       buttonElement[i].addEventListener('click', event => {
@@ -76,7 +259,7 @@ function fetchUsers(pageNumber) {
   }
 
   function changeInJsonServer(loggedInUser,id){
-    let url = `https://userlogin-nxh8.onrender.com/users/${id}`;
+    let url = `${baseServerURL}/users/${id}`;
     fetch((url),{
       method:"PUT",
       headers: {
@@ -146,6 +329,26 @@ function fetchUsers(pageNumber) {
     `
   }
 
+  function createButtonForSorting(total, order) {
+    let limit = 12;
+    let str = "";
+    let paginationWrapper = document.getElementById("pagination-wrapper");
+    paginationWrapper.innerHTML = null;
+    let numberOfButtons = Math.ceil(total/limit);
+    for(let i = 0; i < numberOfButtons; i ++){
+      str = str + `<button class="paginationBtn">${i+1}</button>`
+    }
+    paginationWrapper.innerHTML = str;
+    let buttonArray = document.getElementsByClassName("paginationBtn");
+    for(let i = 0; i < buttonArray.length; i ++){
+      buttonArray[i].addEventListener("click",(event)=>{
+        let buttonNumber = event.target.innerText;
+        let url = `${baseServerURL}/data?_limit=12&_page=${buttonNumber}&_sort=price&_order=${order}`;
+        fetchSortedData(url, order);
+      })
+    }
+  }
+
 
   function createButton(total){
     let limit = 12;
@@ -156,11 +359,12 @@ function fetchUsers(pageNumber) {
     }
     let paginationWrapper = document.getElementById("pagination-wrapper");
     paginationWrapper.innerHTML = str;
-    let buttonArray = document.getElementsByTagName("button");
+    let buttonArray = document.getElementsByClassName("paginationBtn");
     for(let i = 0; i < buttonArray.length; i ++){
       buttonArray[i].addEventListener("click",(event)=>{
         let buttonNumber = event.target.innerText;
-        fetchUsers(buttonNumber);
+        let url = `${baseServerURL}/data?_limit=12&_page=${buttonNumber}`;
+        fetchShoes(url);
       })
     }
     

@@ -1,7 +1,14 @@
+
 nav{
     display: flex;
     /* border: 2px solid red; */
     padding:10px
+}
+#searchbox{
+    width: 30%;
+}
+#blackstrip{
+    text-align: center;
 }
 nav>div:nth-child(1){
     /* border: 2px solid rgb(0, 0, 0); */
@@ -106,9 +113,35 @@ input{
     display: block;
     margin: auto;
     width:60%;
+    height:2vw;
     border-radius: 1vw;
     background-color: white;
     color: black;
+    cursor: pointer;
+}
+
+#sort{
+    height:2vw;
+    cursor: pointer;
+}
+
+#sort:hover{
+    height:2vw;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+#colorSelect{
+    height:2vw;
+    cursor: pointer;
+}
+
+#colorSelect:hover{
+    height:2vw;
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
 select{
@@ -209,4 +242,29 @@ select{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.btnleft:hover{
+    background-color: black;
+    color: white;
+}
+
+
+
+footer{
+    background-color: azure;
+    font-size: 15px;
+}
+#footerlast{
+    display: flex;
+    justify-content: center;
+}
+#footerlast>div{
+    display: flex;
+    padding: 1%;
+    width: 80%;
+}
+#footerlast>div>div{
+    padding: 1%;
+    width: 20%;
 }

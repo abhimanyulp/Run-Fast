@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./../css/shoe.css" />
+    <link rel="stylesheet" type="text/css" href="./css/shoe.css" />
     <title>Shoe</title>
 </head>
 <body>
@@ -38,37 +38,38 @@
     <marquee width="100%" direction="left">
         <p>50% DISCOUNT ON EVERY PRODUCT &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp YOU CAN APPLY COUPON OF
             AMERICAN EXPRESS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp BUY NOW PAY LATER
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp BUY ONE GET TWO FREE ON JEANS</p>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp BUY ONE GET TWO FREE ON NIKE SHOES
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp USE "HOLI2023" COUPON CODE TO GET 30% DISCOUNT ON AXIS CARD</p>
     </marquee>
 </div>
 
 <div id="mainDiv">
     <div id="freeSpace">
-        <input type="number" placeholder="Enter Price" name="price" id="btnPrice"></input>
-        <button class="btnleft" name="price">Filter By Price</button>
+        <input type="number" placeholder="Enter Price" name="price" id="inputPrice"></input>
+        <button class="btnleft" id="btnPrice" name="price">Filter By Price</button>
         <br>
         <form>
-            <input  type="number" min="1" max="5" placeholder="Enter Rating" name="rating" id="btnRating"></input>
+            <input  type="number" min="1" max="5" placeholder="Enter Rating" name="rating" id="ratingValue"></input>
         </form>
-        <button class="btnleft" name="rating">Filter By Rating</button>
+        <button id="btnRating" class="btnleft" name="rating">Filter By Rating</button>
         <br>
-        <input type="text" placeholder="Enter Brand" name="brand" id="btnBrand"></input>
-        <button class="btnleft" name="brand">Filter By Brand</button>
+        <input type="text" placeholder="Enter Brand" name="brand" id="inputBrand"></input>
+        <button class="btnleft" id="btnBrand" name="brand">Filter By Brand</button>
         <br>
-        <select>
-            <option>Sort</option>
-            <option>Sort High To Low</option>
-            <option>Sort Low To High</option>
+        <select id="sort">
+            <option value="sort">Sort</option>
+            <option value="desc">Sort High To Low</option>
+            <option value="asc">Sort Low To High</option>
         </select>
         <br>
-        <select>
-            <option>Choose Color</option>
-            <option>Black</option>
-            <option>White</option>
-            <option>Red</option>
-            <option>Cream</option>
-            <option>Light Brown</option>
-            <option>Pink</option>
+        <select id="colorSelect">
+            <option value="">Choose Color</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="red">Red</option>
+            <option value="cream">Cream</option>
+            <option value="brown">Light Brown</option>
+            <option value="pink">Pink</option>
         </select>
 
     </div>
@@ -81,6 +82,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

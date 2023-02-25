@@ -48,27 +48,27 @@
         <button class="btnleft" id="btnPrice" name="price">Filter By Price</button>
         <br>
         <form>
-            <input  type="number" min="1" max="5" placeholder="Enter Rating" name="rating" id="btnRating"></input>
+            <input  type="number" min="1" max="5" placeholder="Enter Rating" name="rating" id="ratingValue"></input>
         </form>
-        <button class="btnleft" name="rating">Filter By Rating</button>
+        <button id="btnRating" class="btnleft" name="rating">Filter By Rating</button>
         <br>
-        <input type="text" placeholder="Enter Brand" name="brand" id="btnBrand"></input>
-        <button class="btnleft" name="brand">Filter By Brand</button>
+        <input type="text" placeholder="Enter Brand" name="brand" id="inputBrand"></input>
+        <button class="btnleft" id="btnBrand" name="brand">Filter By Brand</button>
         <br>
-        <select>
-            <option>Sort</option>
-            <option>Sort High To Low</option>
-            <option>Sort Low To High</option>
+        <select id="sort">
+            <option value="sort">Sort</option>
+            <option value="desc">Sort High To Low</option>
+            <option value="asc">Sort Low To High</option>
         </select>
         <br>
-        <select>
-            <option>Choose Color</option>
-            <option>Black</option>
-            <option>White</option>
-            <option>Red</option>
-            <option>Cream</option>
-            <option>Light Brown</option>
-            <option>Pink</option>
+        <select id="colorSelect">
+            <option value="">Choose Color</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="red">Red</option>
+            <option value="cream">Cream</option>
+            <option value="brown">Light Brown</option>
+            <option value="pink">Pink</option>
         </select>
 
     </div>

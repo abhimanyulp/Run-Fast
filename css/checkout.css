@@ -3,9 +3,37 @@
 }
 
 
-
+@media screen and (max-width: 800px) {
+    
+    /* #address-page {
+        flex-direction: column;
+    } */
+    
+}
 
 /* Navbar */
+#navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    /* background-color: lavender; */
+    border-bottom: 1px solid lightgray;
+}
+#logo {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+#logo > img {
+    width: 20%;
+}
+
+
+
+/* Heading */
 #heading{
     width: 90%;
     /* border: 2px solid red; */
@@ -13,6 +41,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid lightgray;
 }
 
 

@@ -1,13 +1,22 @@
 // <-------------------Catching & Declaring---------------->
 
 
-let LSkeyData = "Abhimanyu"
+//Getting key from local storage
+let fetchedData = JSON.parse(localStorage.getItem("key"));
 
-// let LSkeyData = JSON.parse(localStorage.getItem("key"))
+let LSkeyData = fetchedData[0];
+// let LSkeyData = 2;
+
+
 
 let orderLS = JSON.parse(localStorage.getItem("order"))
 
-const URL = "https://userlogin-nxh8.onrender.com/users";
+
+
+
+//glitch
+const URL = "https://nutritious-sugared-fur.glitch.me/users";
+
 
 let address = document.getElementById("address-box");
 
@@ -46,6 +55,8 @@ let cardNameIn = document.getElementById("card-name-in");
 let cardDateIn = document.getElementById("card-date-in");
 let cvvIn = document.getElementById("cvv-in");
 
+
+let delType = "cod";
 
 
 
@@ -87,12 +98,14 @@ fetch(URL, {
 codCheckbox.addEventListener("change", () => {
     if (codCheckbox.checked) {
         onlineCheckbox.checked = false;
+        delType="cod";
     }
 })
 
 onlineCheckbox.addEventListener("change", () => {
     if (onlineCheckbox.checked) {
         codCheckbox.checked = false;
+        delType="online";
     }
 })
 
@@ -106,8 +119,14 @@ otpBtn.addEventListener("click", () => {
     if (otpIn == currentOtp) {
 
         otpEl.style.display = "none"
+
         backend()
-        alert("Order Placed Successfuly");
+
+        setTimeout(()=>{
+            window.location.href = "placed.html"
+        },2000)
+
+        // alert("Order Placed Successfuly");
 
     } else {
         alert("Please Enter Correct OTP")
@@ -123,7 +142,12 @@ OrderBtn.addEventListener("click", () => {
     if (codCheckbox.checked) {
 
         backend()
-        alert("Order Placed Successfuly")
+
+        setTimeout(()=>{
+            window.location.href = "placed.html"
+        },2000)
+
+        // alert("Order Placed Successfuly")
 
     }
 
@@ -179,7 +203,7 @@ function GetAdd(name, add, email) {
 //Filtering data with LS key to specific user
 function FilterUser(data) {
     let filtered = data.filter((element) => {
-        if (LSkeyData == element.username) {
+        if (LSkeyData == element.id) {
             return true
         } else {
             return false;
@@ -222,7 +246,11 @@ function validate() {
 
 //Backend POST function
 function backend() {
-    fetch(`https://userlogin-nxh8.onrender.com/ordered`, {
+
+    orderLS.type = delType;
+    orderLS.days = Math.floor(Math.random() * 10)
+
+    fetch(`https://nutritious-sugared-fur.glitch.me/ordered`, {
         method: "POST",
         body: JSON.stringify(orderLS),
         headers: {

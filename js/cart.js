@@ -1,10 +1,17 @@
+// <-------------------Catching & Declaring---------------->
 
 
-let LSkeyData = "Abhimanyu"
+//Getting key from local storage
+let fetchedData = JSON.parse(localStorage.getItem("key"));
 
-// let LSkeyData = JSON.parse(localStorage.getItem("key"))
+let LSkeyData = fetchedData[0];
+// let LSkeyData = 2;
 
-const URL = "https://userlogin-nxh8.onrender.com/users";
+
+
+const URL = "https://nutritious-sugared-fur.glitch.me/users";
+
+
 
 let container = document.getElementById("container-product");
 let checkoutbtn = document.getElementById("checkout");
@@ -23,10 +30,11 @@ let total = 0;
 let UserData;
 let UserCart;
 let OrderData;
+let UserName;
 
 
 
-
+// <--------------Fetching and Display user cart------------>
 
 
 //Fetching cart data
@@ -44,6 +52,9 @@ fetch(URL, {
 
         UserCart = UserData[0].cart;
 
+        // console.log(UserData)
+        // console.log(UserData[0].cart.length)
+
         Display(UserCart);
         userIdTag.innerText = `User: ${UserName}`;
     })
@@ -51,6 +62,12 @@ fetch(URL, {
 
 
 
+
+    
+
+
+
+// <---------------addEventListener----------------->
 
 
 
@@ -67,13 +84,13 @@ couponSel.addEventListener("change", () => {
 
 
 
-
-
 //Temperoly saving order data to local stroage
 checkoutbtn.addEventListener("click", () => {
     OrderData = {
-        username: LSkeyData,
-        totalAmount: total
+        username: UserName,
+        totalAmount: total,
+        type: "none",
+        days: "none"
     }
     localStorage.setItem("order", JSON.stringify(OrderData));
 })
@@ -86,10 +103,15 @@ checkoutbtn.addEventListener("click", () => {
 
 
 
+
+// <--------------Functions-------------->
+
+
+
 //Filtering data with LS key to specific user
 function FilterUser(data) {
     let filtered = data.filter((element) => {
-        if (LSkeyData == element.username) {
+        if (LSkeyData == element.id) {
             return true
         } else {
             return false;
@@ -103,7 +125,6 @@ function FilterUser(data) {
 
 
 //Display Function
-
 function Display(data) {
     container.innerHTML = null;
 
@@ -176,15 +197,31 @@ function Display(data) {
             subtotalEl.innerText = `$${subtotal}`;
 
             value.innerText++
-
-
         })
 
+
+        let id = element.id;
 
 
         let remove = document.createElement("button");
         remove.innerText = "x"
         remove.setAttribute("id", "removeBtn")
+
+
+        remove.addEventListener("click",()=>{
+
+            let filtered = filterWithID(id)
+
+            UserData[0].cart = filtered;
+
+            cartUpdate(UserData[0],LSkeyData)
+
+            total = 0;
+            subtotal = 0;
+
+            Display(filtered)
+
+        })
 
 
         card.append(card_box, price, quantity, remove);
@@ -194,4 +231,41 @@ function Display(data) {
 
         container.append(card);
     })
+}
+
+
+
+//Removing the element from cart
+function filterWithID(id){
+    let filtered = UserCart.filter((element)=>{
+        if (id != element.id) {
+            return true
+        } else {
+            return false;
+        }
+    })
+    return filtered;
+}
+
+
+//Replacing the user with updated cart
+function cartUpdate(updated,id){
+    let url = `https://nutritious-sugared-fur.glitch.me/users/${id}`;
+    fetch(url,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify(updated)
+    })
+    .then((res)=>{
+      return res.json();
+    })
+    .then((data)=>{
+      console.log(data);
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+
 }

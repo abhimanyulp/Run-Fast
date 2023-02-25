@@ -1,6 +1,6 @@
 
-let baseServerURL = "https://userlogin-nxh8.onrender.com";
 
+let baseServerURL = "https://nutritious-sugared-fur.glitch.me";
 let paginationWrapperGlobal = document.getElementById("pagination-wrapper");
 
 //In reality ,this data I will get from local storage which is being done by Pranay
@@ -41,7 +41,7 @@ btnPrice.addEventListener(("click"),event=>{
     fetchShoes(url)
     return;
   }
-  let url = "https://userlogin-nxh8.onrender.com/data";
+  let url = `${baseServerURL}/data`;
   getFilteredData(url);
 })
 
@@ -54,7 +54,7 @@ function getFilteredData(url){
     let filteredData = filterTheData(data);
     if(filteredData.length == 0){
       alert("The price for which you are searching is not available,please Enter other amount")
-      let url = "https://userlogin-nxh8.onrender.com/data";
+      let url = `${baseServerURL}/data`;
       fetchShoes(url);
     }
     paginationWrapperGlobal.innerHTML = null;
@@ -85,7 +85,7 @@ btnBrand.addEventListener("click",(event)=>{
     alert('Please enter the brand');
     return;
   }
-  let url = "https://userlogin-nxh8.onrender.com/data";
+  let url = `${baseServerURL}/data`;
   fetchFilter(url, 'brand', value);
 })
 
@@ -95,7 +95,7 @@ colorFilter.addEventListener("change",(event)=>{
   if(value == '') {
     return;
   }
-  let url = "https://userlogin-nxh8.onrender.com/data";
+  let url = `${baseServerURL}/data`;
   fetchFilter(url, 'color', value);
 })
 
@@ -107,7 +107,7 @@ btnRating.addEventListener("click",(event)=>{
     alert("Please Enter The Rating value Greater Than Equal To 1 And Less Than Equal To 5")
     return;
   }
-  let url = "https://userlogin-nxh8.onrender.com/data";
+  let url = `${baseServerURL}/data`;
   fetchFilter(url, 'rating', value);
 })
 
@@ -151,7 +151,7 @@ function filterData(data, filterWith, value){
 let obj =[3]
 let  localCart=[]
  function putrequestCart(obj){
-    let url = `https://userlogin-nxh8.onrender.com/users/${obj}`
+    let url = `${baseServerURL}/users/${obj}`
     fetch(url)
     .then((res)=>{
       // console.log(res)
@@ -226,7 +226,7 @@ function fetchShoes(url) {
   }
 
   function changeInJsonServer(loggedInUser,id){
-    let url = `https://userlogin-nxh8.onrender.com/users/${id}`;
+    let url = `${baseServerURL}/users/${id}`;
     fetch((url),{
       method:"PUT",
       headers: {

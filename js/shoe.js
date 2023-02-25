@@ -3,6 +3,15 @@ let baseServerURL = "https://userlogin-nxh8.onrender.com";
 
 
 //In reality ,this data I will get from local storage which is being done by Pranay
+let filter1 = document.getElementById("btnPrice");
+filter1.addEventListener('click', (event) => {
+  let price = document.getElementById('inputPrice').value;
+  if(price == undefined) {
+    let url = `${baseServerURL}/data?_limit=12&_page=1`;
+    fetchShoes(url);
+    return;
+  }
+})
 
 let obj =[3]
 let  localCart=[]
@@ -33,11 +42,12 @@ let  localCart=[]
 let mainSection = document.getElementById("data-list-wrapper");
 let arr = [];
 window.addEventListener("load", (event) => {
-  fetchUsers(1);
+  let url = `${baseServerURL}/data?_limit=12&_page=1`;
+  fetchShoes(url);
 });
 
-function fetchUsers(pageNumber) {
-    let url = `${baseServerURL}/data?_limit=12&_page=${pageNumber}`;
+function fetchShoes(url) {
+    
     fetch(url)
     .then((res)=>{
       let total = res.headers.get("X-Total-Count");
@@ -146,6 +156,25 @@ function fetchUsers(pageNumber) {
     `
   }
 
+  function createButtonForSorting(total) {
+    let limit = 12;
+    let str = "";
+    let numberOfButtons = Math.ceil(total/limit);
+    for(let i = 0; i < numberOfButtons; i ++){
+      str = str + `<button class="paginationBtn">${i+1}</button>`
+    }
+    let paginationWrapper = document.getElementById("pagination-wrapper");
+    paginationWrapper.innerHTML = str;
+    let buttonArray = document.getElementsByTagName("button");
+    for(let i = 0; i < buttonArray.length; i ++){
+      buttonArray[i].addEventListener("click",(event)=>{
+        let buttonNumber = event.target.innerText;
+        let url = `${baseServerURL}/data?_limit=12&_page=${buttonNumber}&_sort=price&_order=asc`;
+        fetchShoes(url);
+      })
+    }
+  }
+
 
   function createButton(total){
     let limit = 12;
@@ -160,7 +189,8 @@ function fetchUsers(pageNumber) {
     for(let i = 0; i < buttonArray.length; i ++){
       buttonArray[i].addEventListener("click",(event)=>{
         let buttonNumber = event.target.innerText;
-        fetchUsers(buttonNumber);
+        let url = `${baseServerURL}/data?_limit=12&_page=${buttonNumber}`;
+        fetchShoes(url);
       })
     }
     

@@ -12,6 +12,14 @@ font-family: 'Roboto', sans-serif;
 body{
     overflow-x: hidden;
 }
+
+
+
+
+
+
+
+
 .container{
     width: 100%;
     position: relative;
@@ -190,7 +198,7 @@ font-weight: 500;
     padding: 20px;
     padding-top: 0;
 display: grid;
-grid-template-columns: repeat(2,1fr);
+grid-template-columns: repeat(1,1fr);
 gap: 20px;
 
 }
@@ -219,6 +227,7 @@ font-weight: 600;
     background-color: rgb(125, 125, 221);
     color: white;
     text-decoration: none;
+   /* cursor: pointer;  */
 
 }
 .details table{
@@ -248,11 +257,11 @@ text-align:left;
 }
 .status{
     /* background-color: red; */
-    color: white;
+    color: black;
     padding: 3px 8px;
     border-radius: 6px;
 }
-.Delivered{
+/* .Delivered{
     background-color: rgb(6, 185, 6);
 }
 .Pending{
@@ -264,7 +273,7 @@ text-align:left;
 }
 .Progress{
     background-color: blue;
-}
+} */
 
 /* recentCosumers
  */
@@ -299,4 +308,7 @@ text-align:left;
     padding: 3px ;
     text-align: left;
 
+}
+.yellow{
+    color: rgb(255, 217, 0);
 }

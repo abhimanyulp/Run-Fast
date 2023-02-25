@@ -5,6 +5,8 @@ let paginationWrapperGlobal = document.getElementById("pagination-wrapper");
 let userId = localStorage.getItem('key');
 if(userId != null) {
     userId = JSON.parse(userId)[0];
+} else {
+  userId = 1;
 }
 
 if(localStorage.getItem('localCartData') != null) {
@@ -90,7 +92,7 @@ function getFilteredData(url){
       fetchShoes(url);
     }
     paginationWrapperGlobal.innerHTML = null;
-    displayHelper(filteredData);
+    display(filteredData);
   })
   .catch((error)=>{
     console.log(error)
@@ -151,7 +153,7 @@ function fetchFilter(url, filterWith, value){
   .then((data)=>{
     let filteredRatingData = filterData(data, filterWith, value);
     paginationWrapperGlobal.innerHTML = null;
-    displayHelper(filteredRatingData);
+    display(filteredRatingData);
   })
   .catch((error)=>{
     console.log(error)
@@ -178,29 +180,29 @@ function filterData(data, filterWith, value){
 }
 
 
-let obj =[3];
+// let obj =[3];
 
 // keyData.push(obj);
 // localStorage.setItem("key",JSON.stringify(keyData));
-let  localCart=[]
- function putrequestCart(obj){
-    let url = `${baseServerURL}/users/${obj}`
-    fetch(url)
-    .then((res)=>{
-      // console.log(res)
-      return res.json();
-    })
-    .then((data)=>{
-     localCart=data;
-     localStorage.setItem("localCartData",JSON.stringify(localCart));
-    // console.log(localCart);
-      // console.log(data);
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
-  }
-  putrequestCart(obj)
+// let  localCart=[]
+//  function putrequestCart(obj){
+//     let url = `${baseServerURL}/users/${obj}`
+//     fetch(url)
+//     .then((res)=>{
+//       // console.log(res)
+//       return res.json();
+//     })
+//     .then((data)=>{
+//      localCart=data;
+//      localStorage.setItem("localCartData",JSON.stringify(localCart));
+//     // console.log(localCart);
+//       // console.log(data);
+//     })
+//     .catch((error)=>{
+//       console.log(error);
+//     })
+//   }
+//   putrequestCart(obj)
 
   // localStorage.setItem("obj",JSON.stringify(obj));
   //Remove only obj code
@@ -233,13 +235,9 @@ function fetchShoes(url) {
     })
   }
 
-  function displayHelper(data) {
+  function display(data) {
     mainSection.innerHTML = null;
     mainSection.innerHTML = cardList(data);
-  }
-
-  function display(data) {
-    displayHelper(data);
     let buttonElement = document.getElementsByClassName("btnCart");
     for(let i = 0; i < buttonElement.length; ++ i) {
       buttonElement[i].addEventListener('click', event => {

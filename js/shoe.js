@@ -2,8 +2,40 @@
 
 let baseServerURL = "https://nutritious-sugared-fur.glitch.me";
 let paginationWrapperGlobal = document.getElementById("pagination-wrapper");
+let userId = localStorage.getItem('key');
+if(userId != null) {
+    userId = JSON.parse(userId)[0];
+}
 
-//In reality ,this data I will get from local storage which is being done by Pranay
+if(localStorage.getItem('localCartData') != null) {
+  let url = `${baseServerURL}/users`;
+fetch(url)
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        getActualUser(data);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+}
+
+
+function getActualUser(users) {
+    let currentUser = users.filter(user => {
+        if(user.id == userId) {
+            return true;
+        }
+        return false;
+    })
+    if(currentUser.length > 0) {
+        let user = currentUser[0];
+        localStorage.setItem('localCartData', JSON.stringify(user));
+    }
+}
+
+
 let filter1 = document.getElementById("sort");
 filter1.addEventListener('change', (event) => {
   let value = event.target.value;
@@ -146,10 +178,10 @@ function filterData(data, filterWith, value){
 }
 
 
-let keyData=JSON.parse(localStorage.getItem('key'))||[];
-keyData.push(3);
-localStorage.setItem("key",JSON.stringify(keyData));
-let obj =[3]
+let obj =[3];
+
+// keyData.push(obj);
+// localStorage.setItem("key",JSON.stringify(keyData));
 let  localCart=[]
  function putrequestCart(obj){
     let url = `${baseServerURL}/users/${obj}`

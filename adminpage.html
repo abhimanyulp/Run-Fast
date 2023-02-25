@@ -25,13 +25,13 @@
                  </a>
                 </li>
                 <li>
-                <a href="#">
+                <a href="index.html">
                     <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                     <span class="title">customer details</span>
                 </a>
                 </li>
                 <li>
-             <a href="#">
+        <a href="admin_login.html">
                 <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                 <span class="title">Sign-Out</span>
              </a>
@@ -52,7 +52,7 @@
                 <div class="card">
                     
                     <div>
-                         <div class="numbers">₹ 1,123</div>
+                         <div class="numbers">$ <span id="displaytotalcard"></span></div><br>
                         <div class="cardName">Today's Ermings </div>
                     </div>
                     <div class="iconBox">
@@ -63,7 +63,7 @@
                 <div class="card">
                     
                     <div>
-                         <div class="numbers"><span id="productdata"></span></div>
+                         <div class="numbers"><span id="productdata"></span></div><br>
                         <div class="cardName">Total Products</div>
                     </div>
                     <div class="iconBox">
@@ -74,7 +74,7 @@
                 <div class="card">
                     
                     <div>
-                         <div class="numbers"><span id="customerdata"></span></div>
+                         <div class="numbers"><span id="customerdata"></span></div><br>
                         <div class="cardName">Customer</div>
                     </div>
                     <div class="iconBox">
@@ -85,11 +85,11 @@
                 <div class="card">
                     
                     <div>
-                         <div class="numbers">$ 112</div>
+                         <div class="numbers">$ <span id="profit"></span></div><br>
                         <div class="cardName">Net Profit </div>
                     </div>
                     <div class="iconBox">
-                        <i class="fa fa-inr" aria-hidden="true"></i>
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
                     </div>
                </div>
                 
@@ -98,8 +98,8 @@
             <div class="details">
                 <div class="recentOrders">
                     <div class="cartHedder">
-                        <h2>Recrnt Orders</h2>
-                        <a href="#" class="btn">View All</a>
+                        <h2>Recent Orders</h2>
+                        <a href="#" class="btn" id="viewallbtn">View All</a>
                     </div>
                         <table>
                             <thead>
@@ -107,7 +107,7 @@
                                     <td>Name</td>
                                     <td>price</td>
                                     <td>payment</td>
-                                    <td>status</td>
+                                    <td>Delivery Status</td>
                                     
                                 </tr>
                             </thead>
@@ -117,9 +117,9 @@
                         </table>
                    
                 </div>
-                <div class="recentCustomers">
+                <!-- <div class="recentCustomers">
                     <div class="cartHedder">
-                        <h2>Recrnt Customer</h2>
+                        <h2>Recent Customer</h2>
 
                     </div>
                         <table>
@@ -145,7 +145,7 @@
                             </tbody>
                         </table>
                        
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -18,6 +18,7 @@ const  AddproductName=document.querySelector('#product-name');
 const  AddproductBrand=document.querySelector('#product-description');
 const  AddproductPrice=document.querySelector('#product-price');
 const  AddproductSize=document.querySelector('#product-size');
+const  AddproductGender=document.querySelector('#product-gender');
 const  AddproductColor=document.querySelector('#product-color');
 const  AddproductImage=document.querySelector('#product-image');
 
@@ -34,10 +35,11 @@ function getFormData(e){
       let brand=AddproductBrand.value;
      let price=AddproductPrice.value;
     let size=AddproductSize.value;
+    let gender=AddproductGender.value;
     let color=AddproductColor.value;
      let image=AddproductImage.value;
      let rating=getrandome(4);
-    addToDb(name,brand,price,size,color,image,rating)
+    addToDb(name,brand,price,size,gender,color,image,rating)
       console.log(name,brand,price,size,color,image,rating)
 
 }
@@ -45,7 +47,7 @@ function getrandome(max){
     return Math.floor(Math.random()*max)
   }
 
-   async function addToDb(name,brand,price,size,color,image,rating){
+   async function addToDb(name,brand,price,size,gender,color,image,rating){
 
     let addData= await fetch('https://nutritious-sugared-fur.glitch.me/data',{
         method:'POST',
@@ -57,6 +59,7 @@ function getrandome(max){
             brand:brand,
             price:price,
             size:size,
+            gender:gender,
             color:color,
             image:image,
             rating:rating,
@@ -64,6 +67,7 @@ function getrandome(max){
 
         })
     })
+    alert(`New Product is Added to the list`)
     const res=await addData.json();
     console.log(res)
   }
@@ -76,8 +80,10 @@ const updateName=document.querySelector('#update-product-name');
 const updateBrand=document.querySelector('#update-product-description');
 const updatePrice=document.querySelector('#update-product-price');
 const updateSize=document.querySelector('#update-product-size');
+const updateGender=document.querySelector('#update-product-gender');
 const updateColor=document.querySelector('#update-product-color');
 const updateImage=document.querySelector('#update-product-image');
+
 
 
 updateSubmitBtn.addEventListener("submit",updateFormData);
@@ -89,13 +95,15 @@ function updateFormData(e){
  let brand=updateBrand.value;
  let price=updatePrice.value;
  let size=updateSize.value;
+ let gender=updateGender.value;
  let color=updateColor.value;
  let  image=updateImage.value;
- console.log(id,name,brand,price,size,color,image);
- updateProductAll(id,name,brand,price,size,color,image);
+ let rating=getrandome(4);
+ console.log(id,name,brand,price,size,gender,color,image,rating);
+ updateProductAll(id,name,brand,price,size,gender,color,image,rating);
 }
 
-async function updateProductAll(id,name,brand,price,size,color,image){
+async function updateProductAll(id,name,brand,price,size,gender,color,image,rating){
 
     let updateData=await fetch(`https://nutritious-sugared-fur.glitch.me/data/${id}`,{
         method:'PUT',
@@ -108,60 +116,64 @@ async function updateProductAll(id,name,brand,price,size,color,image){
             brand:brand,
             price:price,
             size:size,
+            gender:gender,
             color:color,
             image:image,
+            rating:rating,
             
         })
         
     })
+
+    alert(`Product  Successfully Updated`);
     let updated= await updateData.json();
     console.log(updated);
 
 
 }
 
-// Edit form data 
-const editSubmitBtn=document.getElementById('formEdit');
-const editID=document.querySelector('#edit-product-id');
-const editName=document.querySelector('#edit-product-name');
-const editBrand=document.querySelector('#edit-product-description');
-const editPrice=document.querySelector('#edit-product-price');
-const editSize=document.querySelector('#edit-product-size');
-const editColor=document.querySelector('#edit-product-color');
-const editImage=document.querySelector('#edit-product-image');
+// // Edit form data 
+// const editSubmitBtn=document.getElementById('formEdit');
+// const editID=document.querySelector('#edit-product-id');
+// const editName=document.querySelector('#edit-product-name');
+// const editBrand=document.querySelector('#edit-product-description');
+// const editPrice=document.querySelector('#edit-product-price');
+// const editSize=document.querySelector('#edit-product-size');
+// const editColor=document.querySelector('#edit-product-color');
+// const editImage=document.querySelector('#edit-product-image');
 
-editSubmitBtn.addEventListener("submit",editFormData);
+// editSubmitBtn.addEventListener("submit",editFormData);
 
-function editFormData(e){
-e.preventDefault();
-let id=editID.value;
-// let name=editName.value;
-// let brand=editBrand.value;
-let price=editPrice.value;
-let size=editSize.value;
-let color=editColor.value;
-let image=editImage.value;
-editProduct(id,price,size,color,image)
-console.log(id,price,size,color,image)
-}
+// function editFormData(e){
+// e.preventDefault();
+// let id=editID.value;
+// // let name=editName.value;
+// // let brand=editBrand.value;
+// let price=editPrice.value;
+// let size=editSize.value;
+// let color=editColor.value;
+// let image=editImage.value;
+// editProduct(id,price,size,color,image)
+// console.log(id,price,size,color,image)
+// }
 
- async function editProduct(id,price,size,color,image){
-let editData= await fetch(`https://nutritious-sugared-fur.glitch.me/data/${id}`,{
-    method:"PATCH",
-    headers:{
-        "Content-Type":"application/json"
-    },
-    body:JSON.stringify({
-      id:id,
-    price:price,
-    size:size,
-    color:color,
-    image:image,
-})
-})
-let  editedData= await editData.json();
-console.log(editedData)
- }
+//  async function editProduct(id,price,size,color,image){
+// let editData= await fetch(`https://nutritious-sugared-fur.glitch.me/data/${id}`,{
+//     method:"PATCH",
+//     headers:{
+//         "Content-Type":"application/json"
+//     },
+//     body:JSON.stringify({
+//       id:id,
+//     price:price,
+//     size:size,
+//     color:color,
+//     image:image,
+// })
+// })
+// let  editedData= await editData.json();
+// console.log(editedData)
+//  }
 
 
 //  Delete DATA form server 
@@ -189,6 +201,7 @@ let DelData= await fetch(`https://nutritious-sugared-fur.glitch.me/data/${id}`,{
     })
 
 })
+alert(`Product having Id ${id} is Deleted`)
 let todo= await DelData.json();
 console.log(todo)
 }

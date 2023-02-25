@@ -146,8 +146,9 @@ function filterData(data, filterWith, value){
 }
 
 
-
-
+let keyData=JSON.parse(localStorage.getItem('key'))||[];
+keyData.push(3);
+localStorage.setItem("key",JSON.stringify(keyData));
 let obj =[3]
 let  localCart=[]
  function putrequestCart(obj){

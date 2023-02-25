@@ -77,6 +77,16 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+let slidevalue=1
+
+setInterval(() => {
+    if(slideIndex<3){
+        showSlides(slideIndex);
+        slideIndex++
+    }else{
+        slideIndex=1
+    }
+},1500);
 
 // ===========================================================================================
 let createaccountbtn=document.getElementById("createaccountbtn")
@@ -107,16 +117,19 @@ createaccountbtn.onclick=function(e){
     Div1.style.display="none";
     Div2.style.display="block"
 }
-let clearlocal=document.getElementById("accountbtn")
-clearlocal.onclick=function(){
-    localStorage.clear()
-    window.location.reload()
-}
+let clearlocal=document.getElementById("account")
+clearlocal.addEventListener("change",(e)=>{
+        localStorage.clear()
+        alert("Logout successfully")
+        window.location.reload()
+})
+
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
 //========================================================================================
 
 let loginEmail=document.getElementById("loginUser")
@@ -131,10 +144,9 @@ loginBtn.addEventListener("click",(e)=>{
         Div2.style.display="none"
         // window.location.reload()
     }
-    // console.log(checkEmployees())
 })
 
-let showName=document.querySelector("#accountbtn p")
+let showName=document.querySelector("#showname")
 function checkEmployees(){
     let user=[]
     let userObj={
@@ -142,7 +154,7 @@ function checkEmployees(){
         password:loginPassword.value
     };
 
-    fetch(`https://userlogin-nxh8.onrender.com/users`,{
+    fetch(`https://nutritious-sugared-fur.glitch.me/users`,{
       method:"GET",
       headers:{
         'Content-type':'application/json'
@@ -157,7 +169,7 @@ function checkEmployees(){
                 alert("Login successful")
                 showName.innerHTML=`Hello,${ele.name}`
                 user.push(ele.id)
-                localStorage.setItem("username",JSON.stringify(user))
+                localStorage.setItem("key",JSON.stringify(user))
                 return true
             }
         })
@@ -182,6 +194,7 @@ signupbtn.addEventListener("click",(e)=>{
  
 function fetchAndAddEmployees(){
     let userObj={
+
         name:signName.value,
         email:signUsername.value,
         address:signAddress.value,
@@ -191,7 +204,7 @@ function fetchAndAddEmployees(){
     
     console.log(userObj)
 
-    fetch(`https://userlogin-nxh8.onrender.com/users`,{
+    fetch(`https://nutritious-sugared-fur.glitch.me/users`,{
       method:"POST",
       body:JSON.stringify(userObj),
       headers:{
@@ -205,22 +218,4 @@ function fetchAndAddEmployees(){
   }
 
   //=====================================================================
-  const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
 
-hamburger.addEventListener("click", mobileMenu);
-
-function mobileMenu() {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-}
-
-const navLink = document.querySelectorAll(".nav-link");
-
-navLink.forEach(n => n.addEventListener("click", closeMenu));
-
-function closeMenu() {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-}
-  

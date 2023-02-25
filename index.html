@@ -16,7 +16,7 @@
             <div>
                 <div>
                     <input type="text" placeholder="Search Here" id="searchbox">
-                    <div>
+                    <div id="storebutton">
                         <span>
                             <img src="https://cdn-icons-png.flaticon.com/128/2167/2167265.png" alt="">
                         </span>
@@ -27,16 +27,17 @@
                         <span>
                             <img src="https://cdn-icons-png.flaticon.com/128/3177/3177440.png" alt="">
                         </span>
-                         <p>
-                            Account
-                         </p>
+                         <select name="" id="account">
+                                <option value="show" id="showname">Account</option>
+                                <option value="Logout" id="logout">Logout</option>
+                         </select>
                     </div>
 
                     <div>
                         <span>
                             <img src="https://cdn-icons-png.flaticon.com/128/3081/3081559.png" alt="">
                         </span>
-                        <a href="">
+                        <a href="./cart.html" style="text-decoration: none; color: #000;">
                             Bag
                         </a>
                      </div>
@@ -44,30 +45,6 @@
             </div>
     </nav>
  <!-- =============================================================================================== -->
- <!-- <header class="header">
-    <nav class="navbar">
-        <a href="#" class="nav-logo">WebDev.</a>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </nav>
-</header> -->
 
  <!-- =============================================================================================== -->
 <div id="selectors">
@@ -384,7 +361,11 @@
     <div id="blackstrip">
         <button id="left"></button>
             <div id="box">
-                  Get upto 70% off on sheos | Get upto 35% off on all puma products
+                <marquee width="100%" direction="left">
+                    <p>50% DISCOUNT ON EVERY PRODUCT &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp YOU CAN APPLY COUPON OF
+                        AMERICAN EXPRESS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp BUY NOW PAY LATER
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp BUY ONE GET TWO FREE ON JEANS</p>
+                </marquee>
             </div>
         <button id="right"></button>
     </div>
@@ -406,7 +387,7 @@
         
       <button type="submit" id="loginbtn">Login</button>
     </div>
-    <p>Don't have a account?<span><a href="" id="createaccountbtn">create now</a></span></p>
+    <p>Don't have a account?<span><a href="" id="createaccountbtn">click here</a></span></p>
 
     <div class="container" style="background-color:#f1f1f1">
     </div>
@@ -454,11 +435,6 @@
           <div class="text">Nike Air Collections</div>
         </div>
         
-        <div class="mySlides fade">
-          <img src="puma.png" style="width:100%">
-          <div class="text">Black Friday Is Here!</div>
-        </div>
-        
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
         
@@ -468,7 +444,6 @@
         <div style="text-align:center">
           <span class="dot" onclick="currentSlide(1)"></span> 
           <span class="dot" onclick="currentSlide(2)"></span> 
-          <span class="dot" onclick="currentSlide(3)"></span> 
         </div>
 </div>
     <!-- ================================================================================ -->
@@ -611,23 +586,23 @@
     </div>
 
     <div id="fourbox">
-        <div>Trending Collections</div>
+        <h3>Trending Collections</h3>
         <div>
             <div>
                 <img src="https://finishline.a.bigcontent.io/v1/static/FNL_20230118_DSC_8763_PhotoStudio_0455_604x604?fmt=webp" alt="">
-                <!-- <a href="">Graphic Tees</a> -->
+                <a href="">Graphic Tees</a>
             </div>
             <div>
                 <img src="https://finishline.a.bigcontent.io/v1/static/FNL_Hero_604x604?fmt=webp" alt="">
-                <!-- <a href="">Classics</a> -->
+                <a href="">Classics</a>
             </div>
             <div>
                 <img src="https://finishline.a.bigcontent.io/v1/static/FNL_20230127_Mens_New_Arrivals_quickturn_photostudio_17_604x604?fmt=webp" alt="">
-                <!-- <a href="">Top Trending Styles</a> -->
+                <a href="">Top Trending Styles</a>
             </div>
             <div>
                 <img src="https://finishline.a.bigcontent.io/v1/static/FNL_20230130_Jordan_Everyday_PhotoStudio_0949_604x604?fmt=webp" alt="">
-                <!-- <a href="">Jordan Everyday</a> -->
+                <a href="">Jordan Everyday</a>
             </div>
         </div>
     </div>
@@ -764,7 +739,7 @@
         </div>
         <hr>
         <div id="last">
-
+            <p>2023 RunFast, Inc. All &#169 Rights Reserved</p>
         </div>
     </footer>
 </body>

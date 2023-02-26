@@ -10,7 +10,7 @@ nav{
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 2;
+    z-index: 1;
 }
 #searchbox{
     width: 30%;

@@ -221,6 +221,11 @@ function Display(data) {
 
             Display(filtered)
 
+            setTimeout(()=>{
+                window.location.reload()
+            },2000)
+
+
         })
 
 

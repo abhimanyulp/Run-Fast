@@ -1,10 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&family=Roboto&display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
 .main{
     width: 100%;
     display: flex;
-    align-self: center;
-    align-content: flex-start;
-    justify-content: space-evenly;
+    
+    justify-content: center;
     align-items: center;
+    text-align: center;
 
     margin-top: 100px;
 }
@@ -15,23 +22,23 @@ body{
 
 
 .loginform form{
-    background-color:  rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     padding-top: 40px;
     width: 300px;
-    height: 200px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
     /* border: 2px solid red ; */
   
-}
+
+    .loginform form label{
+ font-weight: 600;
+/* border-left-color: blue; */
+    }
 .loginform form input{
  padding: 5px 10px;
  border-radius: 10px;
  overflow: hidden;
   
-}
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins&family=Roboto&display=swap');
-*{
-    font-family: 'Inter', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
 }

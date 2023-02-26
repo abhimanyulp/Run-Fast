@@ -221,6 +221,16 @@ input{
     background-color: black;
     color: white;
 }
+.alreadyAddedButton {
+    width:20vw;
+    height:2.5vw;
+    margin-top: 2vw;
+    border-radius: 1vw;
+    background-color: white;
+    font-size: medium;
+    color: black;
+    pointer-events: none;
+}
 
 select{
     display: block;
@@ -325,6 +335,9 @@ select{
 .btnleft:hover{
     background-color: black;
     color: white;
+}
+button {
+    cursor: pointer;
 }
 
 

@@ -235,6 +235,39 @@ function fetchShoes(url) {
     })
   }
 
+  function checkIfProductAlreadyExists(id) {
+    let x = localStorage.getItem("localCartData");
+    let cart = JSON.parse(x).cart;
+    if(cart == undefined) {
+      return false;
+    }
+    let filterData = cart.filter(element => {
+      if(element.id == id) {
+        return true;
+      } 
+      return false;
+    })
+    if(filterData.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  function disableAllCartButton() {
+    let x = localStorage.getItem("localCartData");
+    let cart = JSON.parse(x).cart;
+    if(cart == undefined || cart.length <= 0) {
+      return;
+    }
+    for(let i = 0; i < cart.length; ++ i) {
+      let id = cart[i].id;
+      let button = document.getElementById(id);
+      button.disabled = true;
+      button.innerText = 'Product Added To Cart'
+      button.setAttribute('class', 'alreadyAddedButton');
+    }
+  }
+
   function display(data) {
     mainSection.innerHTML = null;
     mainSection.innerHTML = cardList(data);
@@ -242,6 +275,10 @@ function fetchShoes(url) {
     for(let i = 0; i < buttonElement.length; ++ i) {
       buttonElement[i].addEventListener('click', event => {
         let id = event.target.id;
+        if(checkIfProductAlreadyExists(id)) {
+          alert('Product Already Added to Card');
+          return;
+        }
         let filteredData = arr.filter(element => {
           if(element.id == id) {
             return true;
@@ -250,9 +287,14 @@ function fetchShoes(url) {
           }
         })
         addToLS(filteredData);
+        let button = document.getElementById(id);
+        button.disabled = true;
+        button.setAttribute('class', 'alreadyAddedButton');
+        button.innerText = 'Product Added To Cart'
         console.log(filteredData);       
       })
     }
+    disableAllCartButton();
     
   }
 

@@ -1,9 +1,6 @@
 let baseServerURL = "https://nutritious-sugared-fur.glitch.me";
 
-//Remove this code after integration
-let key = [1];
-localStorage.setItem('key', JSON.stringify(key));
-//Till here
+
 let userId = localStorage.getItem('key');
 if(userId != null) {
     userId = JSON.parse(userId)[0];

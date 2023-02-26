@@ -9,7 +9,7 @@ if(userId != null) {
   userId = 1;
 }
 
-if(localStorage.getItem('localCartData') != null) {
+if(localStorage.getItem('localCartData') == null) {
   let url = `${baseServerURL}/users`;
 fetch(url)
     .then(res => {

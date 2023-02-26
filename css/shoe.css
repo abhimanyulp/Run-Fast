@@ -361,19 +361,23 @@ footer{
 }
 
 
-
-@media only screen and (min-width: 500px) and (max-width: 768px) {
+ 
+ @media only screen and (min-width: 500px) and (max-width: 768px) {
     #card-list{
         display: grid;
         grid-template-columns: repeat(2,1fr);
+        width:auto; 
     }
-   
+
+    
 }
 
 @media only screen and (min-width: 200px) and (max-width: 500px) {
     #card-list{
         display: grid;
         grid-template-columns: repeat(1,1fr);
+        width:10vw;
     }
+
    
 }
